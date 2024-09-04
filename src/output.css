@@ -1,6 +1,10 @@
-/*
-! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com
-*/
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/* Font families */
+
+/* ! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -446,7 +450,7 @@ video {
   display: none;
 }
 
-*, ::before, ::after {
+*, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -500,7 +504,7 @@ video {
   --tw-contain-style:  ;
 }
 
-::backdrop {
+::backdrop{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -554,9 +558,129 @@ video {
   --tw-contain-style:  ;
 }
 
-.bg-red-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+}
+
+.left-1{
+  left: 0.25rem;
+}
+
+.top-1{
+  top: 0.25rem;
+}
+
+.top-5{
+  top: 1.25rem;
+}
+
+.left-5{
+  left: 1.25rem;
+}
+
+.top-12{
+  top: 3rem;
+}
+
+.left-12{
+  left: 3rem;
+}
+
+.flex{
+  display: flex;
+}
+
+.h-6{
+  height: 1.5rem;
+}
+
+.h-\[667px\]{
+  height: 667px;
+}
+
+.w-full{
+  width: 100%;
+}
+
+.max-w-7xl{
+  max-width: 80rem;
+}
+
+.max-w-screen-2xl{
+  max-width: 1536px;
+}
+
+.max-w-full{
+  max-width: 100%;
+}
+
+.max-w-2xl{
+  max-width: 42rem;
+}
+
+.max-w-4xl{
+  max-width: 56rem;
+}
+
+.flex-col{
+  flex-direction: column;
+}
+
+.content-center{
+  align-content: center;
+}
+
+.items-center{
+  align-items: center;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.bg-\[url\(\'\/src\/assets\/img\/header-background\.png\'\)\]{
+  background-image: url('/src/assets/img/header-background.png');
+}
+
+.bg-cover{
+  background-size: cover;
+}
+
+.bg-center{
+  background-position: center;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.font-anton{
+  font-family: Anton, sans-serif;
+}
+
+.text-5xl{
+  font-size: 2.75rem;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+.text-yellow{
+  --tw-text-opacity: 1;
+  color: rgb(255 209 91 / var(--tw-text-opacity));
+}
+
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 /*
