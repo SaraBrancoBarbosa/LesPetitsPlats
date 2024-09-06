@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Site de recherches de recettes">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap">
-    <link rel="icon" type="image/png" href="./src/assets/logo/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/png" href="./public/assets/logo/favicon.png">
     <link rel="stylesheet" href="src/output.css" type="text/css">
     <script src="./src/scripts/app.js" type="module"></script>
     <title>Les Petits Plats</title>
@@ -14,66 +15,82 @@
   <body class="flex flex-col justify-center items-center w-full">
     
     <!-- Wrapper -->
-    <div class="w-full max-w-screen-2xl">
+    <div class="flex flex-col items-center gap-14 bg-background w-full max-w-screen-2xl">
 
       <!-- Header -->
       <header 
-        class="bg-[url('/src/assets/img/header-background.png')] bg-cover bg-center h-[667px] w-full 
+        class="bg-[url('/public/assets/img/header-background.png')] bg-cover bg-center h-[667px] w-full 
         flex flex-col justify-center items-center relative">
         
         <nav class="absolute top-12 left-12">
           <a href="index.html">
             <img 
-              src="src/assets/logo/logo.png" 
+              src="public/assets/logo/logo.png" 
               alt="Logo de Les Petits Plats, page d'accueil"
               class="h-6"
               />
           </a>
         </nav>
 
-        <div>
-          <h1 class="text-center text-yellow text-5xl font-anton max-w-4xl uppercase">
+        <div class="flex flex-col gap-6">
+          <h1 class="text-center text-yellow text-2xl md:text-5xl  font-anton max-w-4xl uppercase">
             Cherchez parmi plus de 1500 recettes du quotidien, simples et délicieuses
           </h1>
-          <!-- Ajouter barre de recherche ici -->
+          
+          <!-- Search bar -->
+          <div class="relative px-2 md:px-0">
+
+            <input type="search" id="default-search" placeholder="Rechercher une recette, un ingrédient..."
+            class="inputSearchBar w-full h-20 py-6 px-8 rounded-lg outline-none placeholder-grey text-grey font-manrope focus:placeholder-transparent"/>
+            
+            <button type="submit" class="flex justify-center w-12 h-12 absolute right-4 top-4 rounded-lg bg-black hover:bg-yellow text-2xl text-white hover:text-black transition-colors duration-500">
+              <i class="fa-solid fa-magnifying-glass content-center"></i>
+            </button>
+
+            <button class="buttonSearchBar absolute right-24 top-7 text-2xl text-grey hidden">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+
+          </div>
+
         </div>
 
       </header>
 
       <!-- Main -->
-      <main id="main">
+      <main id="main" class="flex gap-14 bg-background">
 
         <!-- Filter -->
         <div class="filter">
         </div>
 
         <!-- Cards wrapper -->
-        <div class="recipes-main-container">
+        <div class="recipes-main-container grid lg:grid-cols-3 md:grid-cols-2 gap-14 justify-items-center">
         </div>
 
       </main>
 
         <!-- Template recipe card -->
         <template id="template-card">
-        <figure class="card">
+        <figure class="card flex flex-col gap-7 bg-white w-[380px] h-[730px] rounded-3xl">
 
-          <img class="card_img" src="">
+          <img class="card_img w-full h-[250px] object-cover rounded-t-3xl" src="">
 
-          <figcaption class="card_content">
-            <h2 class="card_content_title"></h2>
+          <figcaption class="card_content flex flex-col gap-7 px-6">
+            <h2 class="card_content_title font-anton text-lg"></h2>
 
-            <div class="card_content_text"> 
+            <div class="card_content_text flex flex-col gap-7">
 
-              <div>
-                <h3>Recette</h3>
+              <div class="flex flex-col gap-5">
+                <h3 class="text-sm text uppercase text-grey font-bold">Recette</h3>
                 <p class="card_content_text_recipe"></p>
               </div>
 
-              <div class="card_content_text_ingredients">
-                <h3>Ingrédients</h3>
-                <div class="card_content_text_ingredients_container">
+              <div class="card_content_text_ingredients flex flex-col gap-5">
+                <h3 class="text-sm text uppercase text-grey font-bold">Ingrédients</h3>
+                <div class="card_content_text_ingredients_container"> <!-- Faire un "lire plus" pour les textes de plus de 4 lignes -->
 
-                  <div class="card_content_text_ingredient">
+                  <div class="card_content_text_ingredient flex flex-col gap-5">
                     <p class="ingredient"></p>
                     <p class="quantity_unit"></p>
                   </div>

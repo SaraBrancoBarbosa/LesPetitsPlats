@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ["./src/**/*.js", "./src/*.js", "./*.{html,js}"],
   theme: {
     fontSize: {
@@ -8,10 +8,19 @@ module.exports = {
     extend: {
       colors: {
         "yellow": "#FFD15B",
+        "grey": "#7A7A7A",
+        "lightgrey": "#C6C6C6",
+        "background": "#EDEDED",
       },
       fontFamily: {
         anton: ['Anton', 'sans-serif'],
         manrope: ['Manrope', 'sans-serif'],
+      },
+      fontSize: {
+        "2xl": "1.5rem",
+        "lg": "1.125rem",
+        "xs": "0.75rem",
+        "sm": "0.875rem",
       },
     },
   },
