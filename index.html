@@ -43,7 +43,7 @@
             <input type="search" id="default-search" placeholder="Rechercher une recette, un ingrédient..."
             class="inputSearchBar w-full h-20 py-6 px-8 rounded-lg outline-none placeholder-grey text-grey font-manrope focus:placeholder-transparent"/>
             
-            <button type="submit" class="flex justify-center w-12 h-12 absolute right-4 top-4 rounded-lg bg-black hover:bg-yellow text-2xl text-white hover:text-black transition-colors duration-500">
+            <button type="submit" class="flex justify-center items-center w-12 h-12 absolute right-4 top-4 rounded-lg bg-black hover:bg-yellow text-2xl text-white hover:text-black transition-colors duration-500">
               <i class="fa-solid fa-magnifying-glass content-center"></i>
             </button>
 
@@ -72,7 +72,7 @@
 
         <!-- Template recipe card -->
         <template id="template-card">
-        <figure class="card flex flex-col gap-7 bg-white w-[380px] h-[730px] rounded-3xl">
+        <figure class="card flex flex-col gap-7 bg-white w-[380px] h-[730px] rounded-3xl relative">
 
           <img class="card_img w-full h-[250px] object-cover rounded-t-3xl" src="">
 
@@ -83,29 +83,25 @@
 
               <div class="flex flex-col gap-5">
                 <h3 class="text-sm text uppercase text-grey font-bold">Recette</h3>
-                <p class="card_content_text_recipe"></p>
+                <p class="card_content_text_recipe line-clamp-[4] hover:line-clamp-none transition duration-0 hover:duration-500"></p>
               </div>
 
               <div class="card_content_text_ingredients flex flex-col gap-5">
                 <h3 class="text-sm text uppercase text-grey font-bold">Ingrédients</h3>
-                <div class="card_content_text_ingredients_container"> <!-- Faire un "lire plus" pour les textes de plus de 4 lignes -->
-
-                  <div class="card_content_text_ingredient flex flex-col gap-5">
-                    <p class="ingredient"></p>
-                    <p class="quantity_unit"></p>
-                  </div>
-
-                  <div class="card_content_text_ingredient">
-                    <p class="ingredient"></p>
-                    <p class="quantity_unit"></p>
-                  </div>
-
+                <div class="card_content_text_ingredient flex flex-col">
+                  <p class="ingredient font-medium"></p>
+                  <p class="quantity_unit text-grey"></p>
                 </div>
               </div>
 
             </div>
 
           </figcaption>
+
+          <div class="flex justify-center items-center text-xs bg-yellow rounded-xl w-16 h-7 absolute top-6 right-6">
+            <p class="time-recipe"></p>
+          </div>
+
         </figure>
       </template>
 
