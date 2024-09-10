@@ -32,7 +32,7 @@
           </a>
         </nav>
 
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-7">
           <h1 class="text-center text-yellow text-2xl md:text-5xl  font-anton max-w-4xl uppercase">
             Cherchez parmi plus de 1500 recettes du quotidien, simples et délicieuses
           </h1>
@@ -58,7 +58,7 @@
       </header>
 
       <!-- Main -->
-      <main id="main" class="flex gap-14 bg-background">
+      <main id="main" class="flex gap-y-14 bg-background">
 
         <!-- Filter -->
         <div class="filter">
@@ -72,38 +72,36 @@
 
         <!-- Template recipe card -->
         <template id="template-card">
-        <figure class="card flex flex-col gap-7 bg-white w-[380px] h-[730px] rounded-3xl relative">
+          <figure class="card flex flex-col gap-7 bg-white w-[380px] h-[730px] rounded-3xl relative drop-shadow-md">
 
-          <img class="card_img w-full h-[250px] object-cover rounded-t-3xl" src="">
+            <img class="card_img w-full h-[250px] object-cover rounded-t-3xl" src="">
 
-          <figcaption class="card_content flex flex-col gap-7 px-6">
-            <h2 class="card_content_title font-anton text-lg"></h2>
+            <figcaption class="card_content flex flex-col gap-7 px-6">
+              <h2 class="card_content_title font-anton text-lg"></h2>
 
-            <div class="card_content_text flex flex-col gap-7">
+              <div class="card_content_text flex flex-col gap-7">
 
-              <div class="flex flex-col gap-5">
-                <h3 class="text-sm text uppercase text-grey font-bold">Recette</h3>
-                <p class="card_content_text_recipe line-clamp-[4] hover:line-clamp-none transition duration-0 hover:duration-500"></p>
-              </div>
-
-              <div class="card_content_text_ingredients flex flex-col gap-5">
-                <h3 class="text-sm text uppercase text-grey font-bold">Ingrédients</h3>
-                <div class="card_content_text_ingredient flex flex-col">
-                  <p class="ingredient font-medium"></p>
-                  <p class="quantity_unit text-grey"></p>
+                <div class="flex flex-col gap-5">
+                  <h3 class="text-sm text uppercase text-grey font-bold">Recette</h3>
+                  <p class="card_content_text_recipe line-clamp-[4] hover:line-clamp-none transition duration-0 hover:duration-500"></p>
                 </div>
+
+                <div class="card_content_text_ingredients flex flex-col gap-5">
+                  <h3 class="text-sm text uppercase text-grey font-bold">Ingrédients</h3>
+                  <div class="card_content_text_ingredient_list grid grid-cols-2 gap-y-5">
+                  </div>
+                </div>
+
               </div>
 
+            </figcaption>
+
+            <div class="flex justify-center items-center text-xs bg-yellow rounded-xl w-16 h-7 absolute top-6 right-6">
+              <p class="time-recipe"></p>
             </div>
 
-          </figcaption>
-
-          <div class="flex justify-center items-center text-xs bg-yellow rounded-xl w-16 h-7 absolute top-6 right-6">
-            <p class="time-recipe"></p>
-          </div>
-
-        </figure>
-      </template>
+          </figure>
+        </template>
 
     </div>
   </body>
