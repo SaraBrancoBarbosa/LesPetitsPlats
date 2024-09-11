@@ -17,18 +17,19 @@ export function getRecipeCardDOM(cardRecipe) {
     recipeDescription.textContent = `${description}`;
 
     const ingredientList = card.querySelector(".card_content_text_ingredient_list");
-    ingredientList.innerHTML = ""; // Réinitialiser le contenu
+    ingredientList.innerHTML = "";
 
-    // Itérer sur les ingrédients pour les afficher
+    // To display all the ingredients with the quantity and unit for each card
     ingredients.forEach(({ ingredient, quantity, unit }) => {
-        const ingredientItem = document.createElement("p"); // Créez un nouvel élément pour chaque ingrédient
+        const ingredientItem = document.createElement("p");
         ingredientItem.classList.add("font-medium");
-        ingredientItem.textContent = `${ingredient}`; // Afficher la quantité et l'unité si elles existent
+        ingredientItem.textContent = `${ingredient}`;
         
         const ingredientQuantityUnity = document.createElement("p");
         ingredientQuantityUnity.classList.add("text-grey");
         ingredientQuantityUnity.textContent = `${quantity ? quantity : ""} ${unit ? unit : ""}`
 
+        // To pair each ingredient with their associated quantity & unit
         const ingredientPairing = document.createElement("div");
 
         ingredientPairing.appendChild(ingredientItem);
