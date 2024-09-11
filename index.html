@@ -41,13 +41,13 @@
           <div class="relative px-2 md:px-0">
 
             <input type="search" id="default-search" placeholder="Rechercher une recette, un ingrédient..."
-            class="inputSearchBar w-full h-20 py-6 px-8 rounded-lg outline-none placeholder-grey text-grey font-manrope focus:placeholder-transparent"/>
+            class="inputSearchBarHeader w-full h-20 py-6 px-8 rounded-lg outline-none placeholder-grey text-grey font-manrope focus:placeholder-transparent"/>
             
             <button type="submit" class="flex justify-center items-center w-12 h-12 absolute right-4 top-4 rounded-lg bg-black hover:bg-yellow text-2xl text-white hover:text-black transition-colors duration-500">
               <i class="fa-solid fa-magnifying-glass content-center"></i>
             </button>
 
-            <button class="buttonSearchBar absolute right-24 top-7 text-2xl text-grey hidden">
+            <button class="buttonSearchBarHeader absolute right-24 top-7 text-2xl text-grey hidden">
               <i class="fa-solid fa-xmark"></i>
             </button>
 
@@ -58,11 +58,70 @@
       </header>
 
       <!-- Main -->
-      <main id="main" class="flex gap-y-14 bg-background">
+      <main id="main" class="flex flex-col gap-y-14 px-5 bg-background">
 
         <!-- Filter -->
-        <div class="filter">
+        <div class="filter_and_selected_items flex flex-col gap-y-6">
+          
+          <!-- Filter selection -->
+          <div class="filter flex justify-between items-center">
+
+            <div class="filter_container grid sm:grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-14 font-manrope">
+                <button id="filter_ingredients" class="button_filter flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-white">
+                  Ingrédients
+                  <i class="fa-solid fa-chevron-up -scale-y-100 icon_filter"></i>
+                </button>
+
+                <button id="filter_appareils" class="button_filter flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-white">
+                  Appareils
+                  <i class="fa-solid fa-chevron-up -scale-y-100 icon_filter"></i>
+                </button>
+
+                <button id="filter_ustensiles" class="button_filter flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-white">
+                  Ustensiles
+                  <i class="fa-solid fa-chevron-up -scale-y-100 icon_filter"></i>
+                </button>
+            </div>
+
+            <!-- Le nombre devra se mettre à jour -->
+            <p class="font-anton text-xl">1500 recettes</p>
+          </div>
+
+          <!-- Filter selected items-->
+          <div class="filter_selected_item_container grid sm:grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-14 font-manrope">
+            
+            <div class="selected_item flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-yellow">
+              Exemple 1
+              <button class="delete_item">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+          </div>
         </div>
+
+        <!-- Template filter dropdown -->
+         <div class="dropdown_filter flex-col gap-3 hidden h-80 w-48 rounded-lg bg-white font-manrope">
+          
+          <!-- Search bar -->
+          <div class="flex justify-center relative p-2 md:px-0">
+            <input type="search" id="default-search" placeholder=""
+            class="inputSearchBarFilter w-40 h-9 py-4 px-2 rounded-lg outline-none border border-lightgrey text-grey focus:placeholder-transparent"/>
+            
+            <button type="submit" class="flex justify-center items-center absolute right-6 top-5 rounded-lg text-sm text-grey">
+              <i class="fa-solid fa-magnifying-glass content-center"></i>
+            </button>
+
+            <button class="buttonSearchBarFilter absolute right-12 top-5 text-sm text-grey hidden">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="flex flex-col">
+            <p class="px-4 py-2 hover:bg-yellow transition-colors duration-500">Exemple 1</p>
+            <p class="px-4 py-2 hover:bg-yellow transition-colors duration-500">Exemple 2</p>
+          </div>
+         </div>
 
         <!-- Cards wrapper -->
         <div class="recipes-main-container grid lg:grid-cols-3 md:grid-cols-2 gap-14 justify-items-center">
@@ -72,18 +131,18 @@
 
         <!-- Template recipe card -->
         <template id="template-card">
-          <figure class="card flex flex-col gap-7 bg-white w-[380px] h-[730px] rounded-3xl relative drop-shadow-md">
+          <figure class="card flex flex-col gap-7 bg-white w-[380px] min-h-[730px] rounded-3xl relative drop-shadow-md">
 
             <img class="card_img w-full h-[250px] object-cover rounded-t-3xl" src="">
 
-            <figcaption class="card_content flex flex-col gap-7 px-6">
+            <figcaption class="card_content flex flex-col gap-7 px-6 pb-7">
               <h2 class="card_content_title font-anton text-lg"></h2>
 
               <div class="card_content_text flex flex-col gap-7">
 
                 <div class="flex flex-col gap-5">
                   <h3 class="text-sm text uppercase text-grey font-bold">Recette</h3>
-                  <p class="card_content_text_recipe line-clamp-[4] hover:line-clamp-none transition duration-0 hover:duration-500"></p>
+                  <p class="card_content_text_recipe"></p>
                 </div>
 
                 <div class="card_content_text_ingredients flex flex-col gap-5">
