@@ -27,7 +27,7 @@ export function getRecipeCardDOM(cardRecipe) {
         
         const ingredientQuantityUnity = document.createElement("p");
         ingredientQuantityUnity.classList.add("text-grey");
-        ingredientQuantityUnity.textContent = `${quantity ? quantity : ""} ${unit ? unit : ""}`
+        ingredientQuantityUnity.textContent = `${quantity ?? ""} ${unit ?? ""}`.trim();
 
         // To pair each ingredient with their associated quantity & unit
         const ingredientPairing = document.createElement("div");
