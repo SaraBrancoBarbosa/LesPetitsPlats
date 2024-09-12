@@ -22,6 +22,9 @@ export default {
         "xs": "0.75rem",
         "sm": "0.875rem",
       },
+      gridTemplateColumns: {
+        "card": "repeat(auto-fit, minmax(380px, 1fr))",
+      },
     },
   },
   plugins: [],

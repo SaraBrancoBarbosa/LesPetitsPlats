@@ -32,33 +32,33 @@
           </a>
         </nav>
 
-        <div class="flex flex-col gap-7">
+        <div class="flex flex-col gap-7 px-2">
           <h1 class="text-center text-yellow text-2xl md:text-5xl  font-anton max-w-4xl uppercase">
             Cherchez parmi plus de 1500 recettes du quotidien, simples et délicieuses
           </h1>
           
           <!-- Search bar -->
-          <div class="relative px-2 md:px-0">
+          <label for="default-search" class="flex justify-between items-center gap-6 w-full h-[72px] px-2.5 pl-8 rounded-lg bg-white">
 
             <input type="search" id="default-search" placeholder="Rechercher une recette, un ingrédient..."
-            class="inputSearchBarHeader w-full h-20 py-6 px-8 rounded-lg outline-none placeholder-grey text-grey font-manrope focus:placeholder-transparent"/>
+            class="inputSearchBarHeader flex-1 h-8 outline-none bg-transparent placeholder-grey text-grey font-manrope focus:placeholder-transparent"/>
             
-            <button type="submit" class="flex justify-center items-center w-12 h-12 absolute right-4 top-4 rounded-lg bg-black hover:bg-yellow text-2xl text-white hover:text-black transition-colors duration-500">
-              <i class="fa-solid fa-magnifying-glass content-center"></i>
-            </button>
-
-            <button class="buttonSearchBarHeader absolute right-24 top-7 text-2xl text-grey hidden">
+            <button class="buttonSearchBarHeader text-2xl text-grey hidden">
               <i class="fa-solid fa-xmark"></i>
             </button>
 
-          </div>
+            <button type="submit" class="flex justify-center items-center w-[52px] h-[52px] rounded-lg bg-black hover:bg-yellow text-2xl text-white hover:text-black transition-colors duration-500">
+              <i class="fa-solid fa-magnifying-glass content-center w-full h-full"></i>
+            </button>
+
+          </label>
 
         </div>
 
       </header>
 
       <!-- Main -->
-      <main id="main" class="flex flex-col gap-y-14 px-5 bg-background">
+      <main id="main" class="flex flex-col gap-y-14 px-24 bg-background">
 
         <!-- Filter -->
         <div class="filter_and_selected_items flex flex-col gap-y-6">
@@ -108,11 +108,11 @@
             <input type="search" id="default-search" placeholder=""
             class="inputSearchBarFilter w-40 h-9 py-4 px-2 rounded-lg outline-none border border-lightgrey text-grey focus:placeholder-transparent"/>
             
-            <button type="submit" class="flex justify-center items-center absolute right-6 top-5 rounded-lg text-sm text-grey">
+            <button type="submit" class="flex justify-center items-center absolute right-6 top-[1.2rem] rounded-lg text-sm text-grey">
               <i class="fa-solid fa-magnifying-glass content-center"></i>
             </button>
 
-            <button class="buttonSearchBarFilter absolute right-12 top-5 text-sm text-grey hidden">
+            <button class="buttonSearchBarFilter absolute right-12 top-[1.2rem] text-sm text-grey hidden">
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
@@ -124,14 +124,14 @@
          </div>
 
         <!-- Cards wrapper -->
-        <div class="recipes-main-container grid lg:grid-cols-3 md:grid-cols-2 gap-14 justify-items-center">
+        <div class="recipes-main-container grid lg:grid-cols-card md:grid-cols-2 gap-14 justify-items-center">
         </div>
 
       </main>
 
         <!-- Template recipe card -->
         <template id="template-card">
-          <figure class="card flex flex-col gap-7 bg-white w-[380px] min-h-[730px] rounded-3xl relative drop-shadow-md">
+          <figure class="card flex flex-col gap-7 bg-white w-full min-h-[730px] rounded-3xl relative drop-shadow-md">
 
             <img class="card_img w-full h-[250px] object-cover rounded-t-3xl" src="">
 
@@ -142,7 +142,7 @@
 
                 <div class="flex flex-col gap-5">
                   <h3 class="text-sm text uppercase text-grey font-bold">Recette</h3>
-                  <p class="card_content_text_recipe"></p>
+                  <p class="card_content_text_recipe line-clamp-[4]"></p>
                 </div>
 
                 <div class="card_content_text_ingredients flex flex-col gap-5">
