@@ -7,6 +7,7 @@ export function deleteTextButtonHeader() {
         // Displays the button only if the field is not empty
         if (inputSearchBar.value) {
             buttonSearchBar.style.display = "flex";
+            inputSearchBar.classList.add("[&::-webkit-search-cancel-button]:hidden");
         } else {
             buttonSearchBar.style.display = "none";
         }
@@ -29,6 +30,7 @@ export function deleteTextButtonFilter() {
         // Displays the button only if the field is not empty
         if (inputSearchBarFilter.value) {
             buttonSearchBarFilter.style.display = "flex";
+            inputSearchBarFilter.classList.add("[&::-webkit-search-cancel-button]:hidden");
         } else {
             buttonSearchBarFilter.style.display = "none";
         }

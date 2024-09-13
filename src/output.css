@@ -597,6 +597,10 @@ video {
   -webkit-line-clamp: 4;
 }
 
+.block{
+  display: block;
+}
+
 .flex{
   display: flex;
 }
@@ -689,6 +693,10 @@ video {
   flex: 1 1 0%;
 }
 
+.flex-initial{
+  flex: 0 1 auto;
+}
+
 .-translate-y-\[150px\]{
   --tw-translate-y: -150px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -701,6 +709,12 @@ video {
 
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.appearance-none{
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .grid-cols-2{
@@ -882,6 +896,22 @@ video {
   padding-left: 2rem;
 }
 
+.pr-10{
+  padding-right: 2.5rem;
+}
+
+.pl-2{
+  padding-left: 0.5rem;
+}
+
+.pr-11{
+  padding-right: 2.75rem;
+}
+
+.pr-12{
+  padding-right: 3rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -1035,4 +1065,8 @@ npm run tailwind
   .lg\:grid-cols-card{
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   }
+}
+
+.\[\&\:\:-webkit-search-cancel-button\]\:hidden::-webkit-search-cancel-button{
+  display: none;
 }

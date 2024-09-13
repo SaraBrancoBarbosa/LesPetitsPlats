@@ -67,17 +67,17 @@
           <div class="filter flex justify-between items-center">
 
             <div class="filter_container grid sm:grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-14 font-manrope">
-                <button id="filter_ingredients" class="button_filter flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-white">
+                <button id="filter_ingredients" class="button_filter relative flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-white">
                   Ingrédients
                   <i class="fa-solid fa-chevron-up -scale-y-100 icon_filter"></i>
                 </button>
 
-                <button id="filter_appareils" class="button_filter flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-white">
+                <button id="filter_appareils" class="button_filter relative flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-white">
                   Appareils
                   <i class="fa-solid fa-chevron-up -scale-y-100 icon_filter"></i>
                 </button>
 
-                <button id="filter_ustensiles" class="button_filter flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-white">
+                <button id="filter_ustensiles" class="button_filter relative flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-white">
                   Ustensiles
                   <i class="fa-solid fa-chevron-up -scale-y-100 icon_filter"></i>
                 </button>
@@ -101,27 +101,29 @@
         </div>
 
         <!-- Template filter dropdown -->
-         <div class="dropdown_filter flex-col gap-3 hidden h-80 w-48 rounded-lg bg-white font-manrope">
-          
-          <!-- Search bar -->
-          <div class="flex justify-center relative p-2 md:px-0">
-            <input type="search" id="default-search" placeholder=""
-            class="inputSearchBarFilter w-40 h-9 py-4 px-2 rounded-lg outline-none border border-lightgrey text-grey focus:placeholder-transparent"/>
+        <!-- <template id="template-dropdown"> -->
+          <div class="dropdown_filter absolute flex-col gap-3 hidden h-80 w-48 rounded-lg bg-white font-manrope">
             
-            <button type="submit" class="flex justify-center items-center absolute right-6 top-[1.2rem] rounded-lg text-sm text-grey">
-              <i class="fa-solid fa-magnifying-glass content-center"></i>
-            </button>
+            <!-- Search bar -->
+            <label for="default-search-filter" class="flex justify-center relative p-2 md:px-0">
+              <input type="search" id="default-search-filter" placeholder=""
+              class="inputSearchBarFilter w-40 h-9 py-4 pl-2 pr-12 rounded-lg outline-none border border-lightgrey text-grey focus:placeholder-transparent"/>
+              
+              <button type="submit" class="flex justify-center items-center absolute right-6 top-[1.2rem] rounded-lg text-sm text-grey">
+                <i class="fa-solid fa-magnifying-glass content-center"></i>
+              </button>
 
-            <button class="buttonSearchBarFilter absolute right-12 top-[1.2rem] text-sm text-grey hidden">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
+              <button class="buttonSearchBarFilter absolute right-12 top-[1.2rem] text-sm text-grey hidden">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </label>
 
-          <div class="flex flex-col">
-            <p class="px-4 py-2 hover:bg-yellow transition-colors duration-500">Exemple 1</p>
-            <p class="px-4 py-2 hover:bg-yellow transition-colors duration-500">Exemple 2</p>
+            <div class="flex flex-col">
+              <p class="filter-items px-4 py-2 hover:bg-yellow transition-colors duration-500">Exemple 1</p>
+              <!-- <p class="px-4 py-2 hover:bg-yellow transition-colors duration-500">Exemple 2</p> -->
+            </div>
           </div>
-         </div>
+        <!-- </template> -->
 
         <!-- Cards wrapper -->
         <div class="recipes-main-container grid lg:grid-cols-card md:grid-cols-2 gap-14 justify-items-center">
