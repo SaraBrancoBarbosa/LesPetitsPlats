@@ -18,7 +18,7 @@
                 {
                     "ingredient" : "Crème de coco",
                     "quantity" : 2,
-                    "unit" : "cuillères à soupe"
+                    "unit" : "cuillère à soupe"
                 },
                 {
                     "ingredient" : "Sucre",
@@ -102,7 +102,7 @@
                 {
                     "ingredient": "Huile d'olive",
                     "quantity": 1,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
                 }
             ],
             "time": 80,
@@ -180,7 +180,7 @@
             {
                     "ingredient": "Moutarde de Dijon",
                     "quantity": 1,
-                    "unite": "cuillères à soupe"
+                    "unite": "cuillère à soupe"
             }
             ],
             "time": 45,
@@ -199,7 +199,7 @@
                     "quantity": 1
                 },
                 {
-                    "ingredient": "Pomme",
+                    "ingredient": "Pommes",
                     "quantity": 3
                 },
                 {
@@ -219,7 +219,7 @@
                 {
                     "ingredient": "Sucre vanillé",
                     "quantity": 1,
-                    "unit": "sachets"
+                    "unit": "sachet"
 
                 }
             ],
@@ -470,7 +470,7 @@
                 {
                     "ingredient": "huile d'olive",
                     "quantity": 2,
-                    "unit": "cuillère à soupe"
+                    "unit": "cuillères à soupe"
                 }
             ],
             "time":40,
@@ -588,7 +588,7 @@
                 {
                     "ingredient": "huile d'olives",
                     "quantity": 2,
-                    "unit": "cuillère à soupe"
+                    "unit": "cuillères à soupe"
                 }
             ],
             "time": 45,
@@ -614,7 +614,7 @@
                 {
                     "ingredient": "Jus de citron",
                     "quantity": 1,
-                    "unit":"cuillères à soupe"
+                    "unit":"cuillère à soupe"
                 },
                 {
                     "ingredient": "Glaçons",
@@ -718,7 +718,7 @@
                 {
                     "ingredient": "huile d'olive",
                     "quantity": 1,
-                    "unit": "cuillères à soupe"
+                    "unit": "cuillère à soupe"
                 }
             ],
             "time": 30,
@@ -759,7 +759,7 @@
                 {
                     "ingredient": "Crème fraîche",
                     "quantity" : 1,
-                    "unit": "cuillères à soupe"
+                    "unit": "cuillère à soupe"
                 }
             ],
             "time": 30,
@@ -944,7 +944,7 @@
                 {
                     "ingredient": "Ail",
                     "quantity": 1,
-                    "unit": "gousses"
+                    "unit": "gousse"
                 }
             ],
             "time": 25,
@@ -969,7 +969,7 @@
                 {
                     "ingredient": "Crème fraîche",
                     "quantity": 4,
-                    "unit": "cuillère à soupe"
+                    "unit": "cuillères à soupe"
                 },
                 {
                     "ingredient": "Vermicelles",
@@ -1037,7 +1037,7 @@
                 {
                     "ingredient": "Ail",
                     "quantity": 1,
-                    "unit": "gousses"
+                    "unit": "gousse"
                 },
                 {
                     "ingredient": "Citron",
@@ -1150,7 +1150,7 @@
                 {
                     "ingredient": "Noix de muscade",
                     "quantity": 1,
-                    "unit": "pincées"
+                    "unit": "pincée"
                 }
             ],
             "time": 20,
@@ -1186,7 +1186,7 @@
                 {
                     "ingredient": "Jus de citron",
                     "quantity": 1,
-                    "unit": "cuillères à soupe"
+                    "unit": "cuillère à soupe"
                 }
             ],
             "time": 5,
@@ -1250,12 +1250,12 @@
                 {
                     "ingredient": "Cumin",
                     "quantity": 1,
-                    "unit": "cuillères à café"
+                    "unit": "cuillère à café"
                 },
                 {
                     "ingredient": "Noix de muscade",
                     "quantity": 1,
-                    "unit": "pincées"
+                    "unit": "pincée"
                 }
             ],
             "time": 25,
@@ -1295,7 +1295,7 @@
                 {
                     "ingredient": "Maïzena",
                     "quantity": 1,
-                    "unit": "cuillères à soupe"
+                    "unit": "cuillère à soupe"
                 }
             ],
             "time": 35,
@@ -1382,7 +1382,7 @@
             "servings": 40,
             "ingredients": [
                 {
-                    "ingredient": "Pomme",
+                    "ingredient": "Pommes",
                     "quantity": 2
                 },
                 {
@@ -1429,7 +1429,7 @@
                 {
                     "ingredient": "Bicarbonate",
                     "quantity": 1,
-                    "unit": "cuillères à café"
+                    "unit": "cuillère à café"
                 }
             ],
             "time": 10,
@@ -1455,7 +1455,7 @@
                 {
                     "ingredient": "Sucre vanillé",
                     "quantity": 1,
-                    "unit": "sachets"
+                    "unit": "sachet"
                 }
             ],
             "time": 20,
@@ -1481,7 +1481,7 @@
                 {
                     "ingredient": "Poires au jus",
                     "quantity": 0.5,
-                    "unit" : "boites"
+                    "unit" : "boite"
                 },
                 {
                     "ingredient": "Boudoirs",
@@ -1614,7 +1614,7 @@
                 {
                     "ingredient": "Sucre vanillé",
                     "quantity": 1,
-                    "unit": "sachets"
+                    "unit": "sachet"
                 },
                 {
                     "ingredient": "Oeuf",
@@ -1681,17 +1681,17 @@
                 {
                     "ingredient": "Tomates pelées",
                     "quantity": 1,
-                    "unit": "boites"
+                    "unit": "boite"
                 },
                 {
                     "ingredient": "Lardons",
                     "quantity": 1,
-                    "unit": "barquettes"
+                    "unit": "barquette"
                 },
                 {
                     "ingredient": "Champignons de paris",
                     "quantity": 1,
-                    "unit":"boites"
+                    "unit":"boite"
                 },
                 {
                     "ingredient": "Gruyère",
