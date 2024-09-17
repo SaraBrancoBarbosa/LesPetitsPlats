@@ -292,7 +292,7 @@
                 "unit": "g"
             },
             {
-                    "ingredient": "farine",
+                    "ingredient": "Farine",
                     "quantity": 90,
                     "unit": "g"
             }
@@ -1554,7 +1554,7 @@
                     "unit":"g"
                 },
                 {
-                    "ingredient": "farine",
+                    "ingredient": "Farine",
                     "quantity": 40,
                     "unit": "g"
                 }
