@@ -17,11 +17,21 @@ getRecipes();
 async function displayData(recipes) {
     const recipiesMainContainer = document.querySelector(".recipes-main-container");
 
+    // Limitation to 10 recipes
+    const limitedDisplayRecipes = recipes.slice(0, 10);
+
+    limitedDisplayRecipes.forEach((recipe) => {
+        const recipeCardDOM = getRecipeCardDOM(recipe);
+        recipiesMainContainer.appendChild(recipeCardDOM);
+    });
+
+    /*
     recipes.forEach((recipe) => {
         const recipeCardDOM = getRecipeCardDOM(recipe);
         recipiesMainContainer.appendChild(recipeCardDOM);  
     });
-
+    */
+    
     // Call the filters dropdown function
     filterDropDown();
 }
