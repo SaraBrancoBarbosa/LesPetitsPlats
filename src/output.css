@@ -661,6 +661,15 @@ video {
   height: 100%;
 }
 
+.h-auto{
+  height: auto;
+}
+
+.h-fit{
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .min-h-\[730px\]{
   min-height: 730px;
 }

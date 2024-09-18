@@ -4,6 +4,8 @@ import { getRecipes } from "./api/api.js";
 import { deleteTextButtonHeader, deleteTextButtonFilter } from "./components/searchBars.js";
 import { filterDropDown } from "./components/dropdown.js";
 
+/*********** Calling the json datas and the search bar functions (header + filter) ***********/
+
 // Call the header search bar function to delete the text
 deleteTextButtonHeader();
 
@@ -12,6 +14,8 @@ deleteTextButtonFilter();
 
 // To get the json datas
 getRecipes();
+
+/*********** Displaying the recipes cards ***********/
 
 // To display the recipes cards
 async function displayData(recipes) {
@@ -35,6 +39,8 @@ async function displayData(recipes) {
     // Call the filters dropdown function
     filterDropDown();
 }
+
+/*********** Initiation ***********/
 
 async function init() {
     const { recipes } = await getRecipes();

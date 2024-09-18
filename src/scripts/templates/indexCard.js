@@ -34,8 +34,7 @@ export function getRecipeCardDOM(cardRecipe) {
 
         ingredientPairing.appendChild(ingredientItem);
         ingredientPairing.appendChild(ingredientQuantityUnity);
-        ingredientList.appendChild(ingredientPairing);
-        
+        ingredientList.appendChild(ingredientPairing);  
     });
 
     const recipeTime = card.querySelector(".time-recipe");
