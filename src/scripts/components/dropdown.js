@@ -1,3 +1,8 @@
+// To prevent further propagation of the current event
+const stopMediaPropagation = (event) => { 
+    event.stopPropagation();
+}
+
 export function filterDropDown() {
 
     /*********** DOM elements ***********/
@@ -9,11 +14,6 @@ export function filterDropDown() {
     let currentIconFilter = null;
 
     /*********** Launching and closing filter ***********/
-
-    // To prevent further propagation of the current event
-    const stopMediaPropagation = (event) => { 
-        event.stopPropagation();
-    }
 
     function openDropdown(pIconFilter) {
         dropdownFilter.style.display = "flex";
@@ -63,5 +63,7 @@ export function filterDropDown() {
             dropdownFilter.style.left = `${rect.left}px`;
         });
     });
+
+// Pour les données, faire un switch-case-break ? case "bouton ingrédients sélectionné": "afficher les données" ingrédients: break
 
 }

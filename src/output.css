@@ -633,10 +633,6 @@ video {
   height: 2rem;
 }
 
-.h-80{
-  height: 20rem;
-}
-
 .h-9{
   height: 2.25rem;
 }
@@ -657,17 +653,13 @@ video {
   height: 72px;
 }
 
-.h-full{
-  height: 100%;
-}
-
-.h-auto{
-  height: auto;
-}
-
 .h-fit{
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.h-full{
+  height: 100%;
 }
 
 .min-h-\[730px\]{
@@ -830,8 +822,8 @@ video {
   background-color: rgb(255 209 91 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\/public\/assets\/img\/header-background\.png\'\)\]{
-  background-image: url('/public/assets/img/header-background.png');
+.bg-header{
+  background-image: url('../public/assets/img/header-background.png');
 }
 
 .bg-cover{
