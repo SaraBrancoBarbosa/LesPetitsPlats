@@ -1,7 +1,7 @@
 export async function getRecipes() {
     let database;
     try {
-        database = await fetch("/public/data/recipes.json");
+        database = await fetch("./public/data/recipes.json");
         if (!database.ok) {
             throw new Error("Error! status: ${database.status}");
         }
