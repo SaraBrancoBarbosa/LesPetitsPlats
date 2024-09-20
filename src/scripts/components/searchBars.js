@@ -1,45 +1,33 @@
-export function deleteTextButtonHeader() {
+export function enableClearInputText (input, button) {
     // Main search bar: delete the text by clicking on the delete button
-    let inputSearchBar = document.querySelector(".inputSearchBarHeader");
-    let buttonSearchBar = document.querySelector(".buttonSearchBarHeader");
-    
-    inputSearchBar.addEventListener("input", function() { 
+    input?.addEventListener("input", function() {
         // Displays the button only if the field is not empty
-        if (inputSearchBar.value) {
-            buttonSearchBar.style.display = "flex";
-            inputSearchBar.classList.add("[&::-webkit-search-cancel-button]:hidden");
+        if (input.value) {
+            button.style.display = "flex"
+            input.classList.add("[&::-webkit-search-cancel-button]:hidden")
         } else {
-            buttonSearchBar.style.display = "none";
+            button.style.display = "none"
         }
-    });
+    })
 
     function deleteText() {
-        inputSearchBar.value = "";
-        buttonSearchBar.style.display = "none";
+        input.value = ""
+        button.style.display = "none"
     }
 
-    buttonSearchBar.addEventListener("click", deleteText);
+    button?.addEventListener("click", deleteText)
+}
+
+export function deleteTextButtonHeader() {
+    // Main search bar: delete the text by clicking on the delete button
+    const inputSearchBar = document.querySelector(".inputSearchBarHeader")
+    const buttonSearchBar = document.querySelector(".buttonSearchBarHeader")
+    enableClearInputText(inputSearchBar, buttonSearchBar)
 }
 
 export function deleteTextButtonFilter() {
     // Main search bar: delete the text by clicking on the delete button
-    let inputSearchBarFilter = document.querySelector(".inputSearchBarFilter");
-    let buttonSearchBarFilter = document.querySelector(".buttonSearchBarFilter");
-    
-    inputSearchBarFilter.addEventListener("input", function() { 
-        // Displays the button only if the field is not empty
-        if (inputSearchBarFilter.value) {
-            buttonSearchBarFilter.style.display = "flex";
-            inputSearchBarFilter.classList.add("[&::-webkit-search-cancel-button]:hidden");
-        } else {
-            buttonSearchBarFilter.style.display = "none";
-        }
-    });
-
-    function deleteText() {
-        inputSearchBarFilter.value = "";
-        buttonSearchBarFilter.style.display = "none";
-    }
-
-    buttonSearchBarFilter.addEventListener("click", deleteText);
+    let inputSearchBarFilter = document.querySelector(".inputSearchBarFilter")
+    let buttonSearchBarFilter = document.querySelector(".buttonSearchBarFilter")
+    enableClearInputText(inputSearchBarFilter, buttonSearchBarFilter)
 }
