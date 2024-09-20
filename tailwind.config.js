@@ -24,6 +24,7 @@ export default {
       },
       gridTemplateColumns: {
         "card": "repeat(auto-fit, minmax(380px, 1fr))",
+        "filters" : "repeat(auto-fill, minmax(172px, 1fr))",
       },
       backgroundImage : {
         "header" : "url('../public/assets/img/header-background.png')"

@@ -562,6 +562,14 @@ video {
   pointer-events: none;
 }
 
+.static{
+  position: static;
+}
+
+.fixed{
+  position: fixed;
+}
+
 .absolute{
   position: absolute;
 }
@@ -570,16 +578,28 @@ video {
   position: relative;
 }
 
+.bottom-0{
+  bottom: 0px;
+}
+
+.left-0{
+  left: 0px;
+}
+
 .left-12{
   left: 3rem;
 }
 
-.right-12{
-  right: 3rem;
+.right-0{
+  right: 0px;
 }
 
 .right-6{
   right: 1.5rem;
+}
+
+.top-0{
+  top: 0px;
 }
 
 .top-12{
@@ -590,12 +610,16 @@ video {
   top: 1.5rem;
 }
 
-.top-\[1\.2rem\]{
-  top: 1.2rem;
+.z-\[1000\]{
+  z-index: 1000;
 }
 
-.z-10{
-  z-index: 10;
+.z-\[1001\]{
+  z-index: 1001;
+}
+
+.z-\[9999\]{
+  z-index: 9999;
 }
 
 .line-clamp-\[4\]{
@@ -603,6 +627,10 @@ video {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
+}
+
+.block{
+  display: block;
 }
 
 .flex{
@@ -641,6 +669,10 @@ video {
   height: 250px;
 }
 
+.h-\[48px\]{
+  height: 48px;
+}
+
 .h-\[52px\]{
   height: 52px;
 }
@@ -662,16 +694,16 @@ video {
   height: 100%;
 }
 
+.max-h-\[250px\]{
+  max-height: 250px;
+}
+
 .min-h-\[730px\]{
   min-height: 730px;
 }
 
 .w-16{
   width: 4rem;
-}
-
-.w-40{
-  width: 10rem;
 }
 
 .w-48{
@@ -698,13 +730,10 @@ video {
   flex: 1 1 0%;
 }
 
-.-scale-y-100{
-  --tw-scale-y: -1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.transform{
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+.appearance-none{
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .grid-cols-2{
@@ -713,6 +742,10 @@ video {
 
 .flex-col{
   flex-direction: column;
+}
+
+.flex-col-reverse{
+  flex-direction: column-reverse;
 }
 
 .content-center{
@@ -735,8 +768,16 @@ video {
   justify-items: center;
 }
 
+.gap-10{
+  gap: 2.5rem;
+}
+
 .gap-14{
   gap: 3.5rem;
+}
+
+.gap-2{
+  gap: 0.5rem;
 }
 
 .gap-3{
@@ -770,6 +811,10 @@ video {
 
 .gap-y-6{
   row-gap: 1.5rem;
+}
+
+.overflow-y-auto{
+  overflow-y: auto;
 }
 
 .rounded-3xl{
@@ -808,6 +853,10 @@ video {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-black\/50{
+  background-color: rgb(0 0 0 / 0.5);
+}
+
 .bg-transparent{
   background-color: transparent;
 }
@@ -824,6 +873,10 @@ video {
 
 .bg-header{
   background-image: url('../public/assets/img/header-background.png');
+}
+
+.bg-none{
+  background-image: none;
 }
 
 .bg-cover{
@@ -873,11 +926,6 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .pb-24{
   padding-bottom: 6rem;
 }
@@ -886,20 +934,20 @@ video {
   padding-bottom: 1.75rem;
 }
 
-.pl-2{
-  padding-left: 0.5rem;
-}
-
 .pl-8{
   padding-left: 2rem;
 }
 
-.pr-12{
-  padding-right: 3rem;
+.pt-4{
+  padding-top: 1rem;
 }
 
 .text-center{
   text-align: center;
+}
+
+.text-right{
+  text-align: right;
 }
 
 .font-anton{
@@ -977,14 +1025,6 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.transition{
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
 .transition-colors{
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -999,6 +1039,15 @@ video {
 Dans le terminal, rentrer ça pour watch tailwind (mot clé du package.json):
 npm run tailwind
 */
+
+.icon_filter {
+  transform: rotate(180deg);
+  transition: transform 0.15s ease;
+}
+
+.icon_open {
+  transform: rotate(0deg);
+}
 
 .hover\:bg-yellow:hover{
   --tw-bg-opacity: 1;
@@ -1025,6 +1074,18 @@ npm run tailwind
 }
 
 @media (min-width: 768px){
+  .md\:absolute{
+    position: absolute;
+  }
+
+  .md\:top-10{
+    top: 2.5rem;
+  }
+
+  .md\:max-w-52{
+    max-width: 13rem;
+  }
+
   .md\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1033,9 +1094,13 @@ npm run tailwind
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .md\:px-0{
-    padding-left: 0px;
-    padding-right: 0px;
+  .md\:grid-cols-filters{
+    grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
+  }
+
+  .md\:px-2{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   .md\:text-5xl{
@@ -1044,8 +1109,20 @@ npm run tailwind
 }
 
 @media (min-width: 1024px){
+  .lg\:w-32{
+    width: 8rem;
+  }
+
+  .lg\:w-52{
+    width: 13rem;
+  }
+
   .lg\:grid-cols-card{
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  }
+
+  .lg\:flex-row{
+    flex-direction: row;
   }
 }
 

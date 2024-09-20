@@ -10,3 +10,12 @@
 Dans le terminal, rentrer ça pour watch tailwind (mot clé du package.json):
 npm run tailwind
 */
+
+.icon_filter {
+    transform: rotate(180deg);
+    transition: transform 0.15s ease;
+}
+
+.icon_open {
+    transform: rotate(0deg);
+}
