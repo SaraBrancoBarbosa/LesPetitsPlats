@@ -25,21 +25,38 @@ async function displayData(recipes) {
 
 async function init() {
     const { recipes } = await getRecipes();
-    const ingredients = []
+
+    // new Set() pour éviter les doublons
+    const ingredients = new Set()
     recipes.forEach(recipe => {
         recipe.ingredients.forEach(ingredient => {
-            if (!ingredients.includes(ingredient.ingredient)) {
-                ingredients.push(ingredient.ingredient)
-            }
+            // Convertit l'ingrédient en minuscules avant de l'ajouter au set (puis re-maj avec Tailwind)
+            ingredients.add(ingredient.ingredient.toLowerCase());
         })
     })
+    // Convertit le set en tableau
+    const noDuplicationIngredients = Array.from(ingredients);
 
-    /* Build the filters */
+    const appliance = new Set()
+    recipes.forEach(recipe => {
+        appliance.add(recipe.appliance.toLowerCase());
+    })
+    const noDuplicationAppliances = Array.from(appliance);
+
+    const ustensils = new Set();
+    recipes.forEach(recipe => {
+        recipe.ustensils.forEach(ustensil => {
+            ustensils.add(ustensil.toLowerCase());
+        });
+    });
+    const noDuplicationUstensils = Array.from(ustensils);
+
+    // Build the filters
     const filtersContainer = document.querySelector(".filter_container")
-    initDropDown
-    dropdownTag("Ingrédients", "dropdown_ingredients", filtersContainer, ingredients)
-    dropdownTag("Appareils", "dropdown_appliance", filtersContainer, ["hello", "world"])
-    dropdownTag("Ustensiles", "dropdown_utensils", filtersContainer, ["hello", "world"])
+    initDropDown()
+    dropdownTag("Ingrédients", "dropdown_ingredients", filtersContainer, noDuplicationIngredients)
+    dropdownTag("Appareils", "dropdown_appliance", filtersContainer, noDuplicationAppliances)
+    dropdownTag("Ustensiles", "dropdown_ustensils", filtersContainer, noDuplicationUstensils)
 
     // Call the function to clear the header's input text
     enableClearInputText(document.querySelector(".inputSearchBarHeader"), document.querySelector(".buttonSearchBarHeader"))

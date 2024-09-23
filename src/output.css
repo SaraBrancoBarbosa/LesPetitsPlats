@@ -622,6 +622,10 @@ video {
   z-index: 9999;
 }
 
+.z-\[100\]{
+  z-index: 100;
+}
+
 .line-clamp-\[4\]{
   overflow: hidden;
   display: -webkit-box;
@@ -986,6 +990,14 @@ video {
   text-transform: uppercase;
 }
 
+.capitalize{
+  text-transform: capitalize;
+}
+
+.normal-case{
+  text-transform: none;
+}
+
 .text-grey{
   --tw-text-opacity: 1;
   color: rgb(122 122 122 / var(--tw-text-opacity));
@@ -1047,6 +1059,10 @@ npm run tailwind
 
 .icon_open {
   transform: rotate(0deg);
+}
+
+.first-letter\:uppercase::first-letter{
+  text-transform: uppercase;
 }
 
 .hover\:bg-yellow:hover{
