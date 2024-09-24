@@ -1,6 +1,13 @@
 export function enableClearInputText (input, button) {
     // Main search bar: delete the text by clicking on the delete button
     input?.addEventListener("input", function() {
+        
+        //  HTML tag injection risks: ban chevrons
+        if (input.value.includes("<") || input.value.includes(">")) {
+            // When the user writes them, they are replaced with an empty string
+            input.value = input.value.replace(/<|>/g, "");
+        }
+        
         // Displays the button only if the field is not empty
         if (input.value) {
             button.style.display = "flex"
@@ -26,7 +33,7 @@ export function deleteTextButtonHeader() {
 }
 
 export function deleteTextButtonFilter() {
-    // Main search bar: delete the text by clicking on the delete button
+    // Filter search bar: delete the text by clicking on the delete button
     let inputSearchBarFilter = document.querySelector(".inputSearchBarFilter")
     let buttonSearchBarFilter = document.querySelector(".buttonSearchBarFilter")
     enableClearInputText(inputSearchBarFilter, buttonSearchBarFilter)
