@@ -46,7 +46,7 @@
               <i class="fa-solid fa-xmark"></i>
             </button>
 
-            <button type="submit" class="flex justify-center items-center w-[52px] h-[52px] rounded-lg bg-black hover:bg-yellow text-2xl text-white hover:text-black transition-colors duration-500">
+            <button type="submit" class="flex justify-center items-center w-[52px] h-[52px] rounded-lg bg-black hover:bg-yellow text-2xl text-white hover:text-black transition-colors duration-300">
               <i class="fa-solid fa-magnifying-glass content-center w-full h-full"></i>
             </button>
 
@@ -68,6 +68,9 @@
           <!-- Le nombre devra se mettre à jour -->
           <div class="w-full lg:w-32 font-anton text-xl text-right">1500 recettes</div>
         </div>
+        
+        <!-- En travaux, à la base je voulais mettre les tags dans filter_container mais la mise en page est casséééée -->
+        <div class="filter_tag_container grid sm:grid-cols-1 md:grid-cols-filters gap-y-6 gap-x-14 w-full h-fit"></div>
 
         <!-- Cards wrapper -->
         <div class="recipes-main-container grid lg:grid-cols-card md:grid-cols-2 gap-14 justify-items-center">
@@ -116,19 +119,17 @@
       </div>
     </template>
     <template id="template-dropdown-tag-item">
-      <p class="dropdown-tag-item-name filter-items px-4 py-2 first-letter:uppercase hover:bg-yellow transition-colors duration-500">TAG-NAME</p>
+      <p class="dropdown-tag-item-name filter-items px-4 py-2 first-letter:uppercase cursor-pointer hover:bg-yellow transition-colors duration-300">TAG-NAME</p>
     </template>
 
-    <!-- Filter selected items-->
-    <template id="tag">
-      <div class="filter_selected_item_container grid sm:grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-14">
-        <div class="selected_item flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-yellow">
-          Exemple 1
-          <button class="delete_item">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-      </div>
+    <!-- Filter selected items -->
+    <template id="selected-tag-button">
+      <!-- <div class="filter_selected_item_container grid sm:grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-14"> -->
+        <button class="selected_tag flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-yellow">
+          <span id="selected_tag_name" class="first-letter:uppercase">SELECTED-TAG-NAME</span>
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      <!-- </div> -->
     </template>
 
     <!-- Template recipe card -->
