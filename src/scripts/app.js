@@ -26,37 +26,37 @@ async function displayData(recipes) {
 async function init() {
     const { recipes } = await getRecipes();
 
-    // new Set() pour éviter les doublons
-    const ingredients = new Set()
+    const ingredients = []
     recipes.forEach(recipe => {
-        recipe.ingredients.forEach(ingredient => {
-            // Convertit l'ingrédient en minuscules avant de l'ajouter au set (puis re-maj avec Tailwind)
-            ingredients.add(ingredient.ingredient.toLowerCase());
+        recipe.ingredients.forEach(({ingredient}) => {
+            const lowerIngredient = ingredient.toLowerCase()
+            if (!ingredients.find(ing => lowerIngredient === ing.toLowerCase()))
+                ingredients.push(ingredient)
         })
     })
-    // Convertit le set en tableau
-    const noDuplicationIngredients = Array.from(ingredients);
 
-    const appliance = new Set()
+    const appliances = []
     recipes.forEach(recipe => {
-        appliance.add(recipe.appliance.toLowerCase());
+        const lowerAppliance = recipe.appliance.toLowerCase()
+        if (!appliances.find(app => lowerAppliance === app.toLowerCase()))
+            appliances.push(recipe.appliance);
     })
-    const noDuplicationAppliances = Array.from(appliance);
 
-    const ustensils = new Set();
+    const utensils = []
     recipes.forEach(recipe => {
-        recipe.ustensils.forEach(ustensil => {
-            ustensils.add(ustensil.toLowerCase());
+        recipe.ustensils.forEach(utensil => {
+        const lowerUtensils = utensil.toLowerCase()
+        if (!utensils.find(ust => lowerUtensils === ust.toLowerCase()))
+            utensils.push(utensil);
         });
     });
-    const noDuplicationUstensils = Array.from(ustensils);
 
     // Build the filters
     const filtersContainer = document.querySelector(".filter_container")
     initDropDown()
-    dropdownTag("Ingrédients", "dropdown_ingredients", filtersContainer, noDuplicationIngredients)
-    dropdownTag("Appareils", "dropdown_appliance", filtersContainer, noDuplicationAppliances)
-    dropdownTag("Ustensiles", "dropdown_ustensils", filtersContainer, noDuplicationUstensils)
+    dropdownTag({name:"Ingrédients", id:"dropdown_ingredients", parent:filtersContainer, tagList:ingredients})
+    dropdownTag({name:"Appareils", id:"dropdown_appliances", parent:filtersContainer, tagList:appliances})
+    dropdownTag({name:"Ustensiles", id:"dropdown_utensils", parent:filtersContainer, tagList:utensils})
 
     // Call the function to clear the header's input text
     enableClearInputText(document.querySelector(".inputSearchBarHeader"), document.querySelector(".buttonSearchBarHeader"))
