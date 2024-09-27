@@ -17,7 +17,8 @@ export default {
         manrope: ['Manrope', 'sans-serif'],
       },
       fontSize: {
-        "2xl": "1.5rem",
+        "2xl" : "1.25rem",
+        "3xl": "1.5rem",
         "lg": "1.125rem",
         "xs": "0.75rem",
         "sm": "0.875rem",

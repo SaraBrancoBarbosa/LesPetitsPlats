@@ -6,10 +6,13 @@ function addTag(selectedTagName, pDropdownTag) {
     selectedTag.querySelector("#selected_tag_name").textContent = selectedTagName
     
     selectedTag.onclick = () => {
-        // Pour supprimer le tag sélectionné
+        // To delete the selected tag
         selectedTag.remove()
 
-        // Pour que le tag réapparaisse à nouveau dans le dropdown
+        // If there is no tag, hides the tag container
+        updateTagContainerDisplay();
+
+        // To add the removed tag back to the dropdown
         const tagElement = pDropdownTag.querySelectorAll(".dropdown-tag-item-name")
         tagElement.forEach(t => {
             if (t.textContent === selectedTagName) {
@@ -18,26 +21,35 @@ function addTag(selectedTagName, pDropdownTag) {
         })
     }
     
-    // Pour l'instant je mets ça là-dedans, mais j'aimerais qu'il soit dans la div avec les filtres
     document.querySelector(".filter_tag_container").appendChild(selectedTag);
+    
+    // To update the container display when the tag is added
+    updateTagContainerDisplay();
 }
 
-export const dropdownTag = (name, id, parent, tagList, onClickTag = () => {}) => {
+function updateTagContainerDisplay() {
+    const tagContainer = document.querySelector(".filter_tag_container");
+    if (tagContainer.childElementCount === 0) {
+        tagContainer.style.display = "none";
+    } else {
+        tagContainer.style.display = "flex";
+    }
+}
+
+export const dropdownTag = ({name, id, parent, tagList, onClickTag = () => {}}) => {
     const tagTemplate = document.getElementById("template-dropdown-tag-item").content
     const dropdown = buildDropdown (name, id, parent)
     const tagContainer = dropdown.querySelector(".dropdown-tag-container")
 
     tagList.forEach(tag => {
         const tagElement = tagTemplate.cloneNode(true).querySelector(".dropdown-tag-item-name")
-
-        // Pour remettre la première lettre du tag en majuscule (bizarrement la class tailwind en html n'est pas prise en compte ?)
-        const capitaliseFirstLetter = tag.charAt(0).toUpperCase() + tag.slice(1).toLowerCase()
-        tag = capitaliseFirstLetter
         tagElement.textContent = tag
 
         tagElement.onclick = () => {
             onClickTag?.(tag)
             tagElement.style.display = "none"
+
+            // To add the selected tags
             addTag(tag, tagContainer)
         }
         tagContainer.appendChild(tagElement)

@@ -15,7 +15,7 @@
   <body class="flex flex-col justify-center items-center w-full font-manrope">
     
     <!-- Wrapper -->
-    <div class="flex flex-col items-center gap-14 bg-background w-full max-w-screen-2xl">
+    <div class="flex flex-col items-center gap-7 bg-background w-full max-w-screen-3xl">
 
       <!-- Header -->
       <header 
@@ -33,7 +33,7 @@
         </nav>
 
         <div class="flex flex-col gap-7 px-2">
-          <h1 class="text-center text-yellow text-2xl md:text-5xl  font-anton max-w-4xl uppercase">
+          <h1 class="text-center text-yellow text-3xl md:text-5xl  font-anton max-w-4xl uppercase">
             Cherchez parmi plus de 1500 recettes du quotidien, simples et délicieuses
           </h1>
           
@@ -42,11 +42,11 @@
 
             <input type="search" placeholder="Rechercher une recette, un ingrédient..." class="inputSearchBarHeader flex-1 h-8 outline-none bg-transparent placeholder-grey text-grey focus:placeholder-transparent"/>
             
-            <button class="buttonSearchBarHeader text-2xl text-grey hidden">
+            <button class="buttonSearchBarHeader text-3xl text-grey hidden">
               <i class="fa-solid fa-xmark"></i>
             </button>
 
-            <button type="submit" class="flex justify-center items-center w-[52px] h-[52px] rounded-lg bg-black hover:bg-yellow text-2xl text-white hover:text-black transition-colors duration-300">
+            <button type="submit" class="flex justify-center items-center w-[52px] h-[52px] rounded-lg bg-black hover:bg-yellow text-3xl text-white hover:text-black transition-colors duration-300">
               <i class="fa-solid fa-magnifying-glass content-center w-full h-full"></i>
             </button>
 
@@ -57,23 +57,24 @@
       </header>
 
       <!-- Main -->
-      <main id="main" class="flex flex-col gap-y-14 px-24 pb-24 bg-background">
+      <main id="main" class="flex flex-col gap-y-7 px-24 pb-24 bg-background">
 
         <!-- Filter -->
         <div class="w-full filter flex flex-col-reverse lg:flex-row justify-between items-center gap-10">
           
           <div class="filter_container grid sm:grid-cols-1 md:grid-cols-filters gap-y-6 gap-x-14 w-full">
           </div>
-
+          
           <!-- Le nombre devra se mettre à jour -->
-          <div class="w-full lg:w-32 font-anton text-xl text-right">1500 recettes</div>
+          <div class="w-full lg:w-32 font-anton text-2xl text-right">1500 recettes</div>
+          
         </div>
         
-        <!-- En travaux, à la base je voulais mettre les tags dans filter_container mais la mise en page est casséééée -->
-        <div class="filter_tag_container grid sm:grid-cols-1 md:grid-cols-filters gap-y-6 gap-x-14 w-full h-fit"></div>
-
+        <!-- Selected tags container -->
+        <div class="filter_tag_container hidden flex-wrap gap-y-6 gap-x-6 w-full"></div>
+        
         <!-- Cards wrapper -->
-        <div class="recipes-main-container grid lg:grid-cols-card md:grid-cols-2 gap-14 justify-items-center">
+        <div class="recipes-main-container grid lg:grid-cols-card md:grid-cols-2 gap-14 justify-items-center pt-6">
         </div>
 
       </main>
@@ -125,7 +126,7 @@
     <!-- Filter selected items -->
     <template id="selected-tag-button">
       <!-- <div class="filter_selected_item_container grid sm:grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-14"> -->
-        <button class="selected_tag flex justify-between items-center px-4 rounded-lg w-48 h-14 bg-yellow">
+        <button class="selected_tag flex justify-between items-center px-4 rounded-lg min-w-52 h-[48px] gap-2 bg-yellow">
           <span id="selected_tag_name" class="first-letter:uppercase">SELECTED-TAG-NAME</span>
           <i class="fa-solid fa-xmark"></i>
         </button>
