@@ -558,12 +558,42 @@ video {
   --tw-contain-style:  ;
 }
 
-.pointer-events-none{
-  pointer-events: none;
+.container{
+  width: 100%;
 }
 
-.visible{
-  visibility: visible;
+@media (min-width: 640px){
+  .container{
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px){
+  .container{
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px){
+  .container{
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px){
+  .container{
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px){
+  .container{
+    max-width: 1536px;
+  }
+}
+
+.pointer-events-none{
+  pointer-events: none;
 }
 
 .static{
@@ -649,10 +679,6 @@ video {
   display: none;
 }
 
-.h-14{
-  height: 3.5rem;
-}
-
 .h-6{
   height: 1.5rem;
 }
@@ -710,10 +736,6 @@ video {
   width: 4rem;
 }
 
-.w-48{
-  width: 12rem;
-}
-
 .w-\[52px\]{
   width: 52px;
 }
@@ -722,16 +744,12 @@ video {
   width: 100%;
 }
 
-.w-52{
-  width: 13rem;
+.min-w-52{
+  min-width: 13rem;
 }
 
 .max-w-4xl{
   max-width: 56rem;
-}
-
-.max-w-screen-2xl{
-  max-width: 1536px;
 }
 
 .flex-1{
@@ -752,24 +770,16 @@ video {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.grid-cols-4{
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.grid-cols-3{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.grid-cols-1{
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
 .flex-col{
   flex-direction: column;
 }
 
 .flex-col-reverse{
   flex-direction: column-reverse;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
 }
 
 .content-center{
@@ -825,8 +835,9 @@ video {
        column-gap: 3.5rem;
 }
 
-.gap-y-14{
-  row-gap: 3.5rem;
+.gap-x-6{
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 
 .gap-y-5{
@@ -835,6 +846,10 @@ video {
 
 .gap-y-6{
   row-gap: 1.5rem;
+}
+
+.gap-y-7{
+  row-gap: 1.75rem;
 }
 
 .overflow-y-auto{
@@ -966,6 +981,10 @@ video {
   padding-top: 1rem;
 }
 
+.pt-6{
+  padding-top: 1.5rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -982,7 +1001,7 @@ video {
   font-family: Manrope, sans-serif;
 }
 
-.text-2xl{
+.text-3xl{
   font-size: 1.5rem;
 }
 
@@ -996,6 +1015,10 @@ video {
 
 .text-xs{
   font-size: 0.75rem;
+}
+
+.text-2xl{
+  font-size: 1.25rem;
 }
 
 .font-bold{
@@ -1124,10 +1147,6 @@ npm run tailwind
 
   .md\:grid-cols-filters{
     grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
-  }
-
-  .md\:grid-cols-6{
-    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .md\:px-2{
