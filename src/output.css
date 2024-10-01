@@ -1001,6 +1001,10 @@ video {
   font-family: Manrope, sans-serif;
 }
 
+.text-2xl{
+  font-size: 1.25rem;
+}
+
 .text-3xl{
   font-size: 1.5rem;
 }
@@ -1015,10 +1019,6 @@ video {
 
 .text-xs{
   font-size: 0.75rem;
-}
-
-.text-2xl{
-  font-size: 1.25rem;
 }
 
 .font-bold{
@@ -1139,10 +1139,6 @@ npm run tailwind
 
   .md\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .md\:grid-cols-3{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .md\:grid-cols-filters{

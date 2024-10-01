@@ -36,22 +36,38 @@ function updateTagContainerDisplay() {
     }
 }
 
-export const dropdownTag = ({name, id, parent, tagList, onClickTag = () => {}}) => {
-    const tagTemplate = document.getElementById("template-dropdown-tag-item").content
-    const dropdown = buildDropdown (name, id, parent)
-    const tagContainer = dropdown.querySelector(".dropdown-tag-container")
+// Fonction 2 : filter tags
+export class DropdownTag { 
+    constructor({name, id, parent, tagList, onClickTag = () => {}}) {
+        const tagTemplate = document.getElementById("template-dropdown-tag-item").content
+        const dropdown = buildDropdown (name, id, parent)
+        const tagContainer = dropdown.querySelector(".dropdown-tag-container")
 
-    tagList.forEach(tag => {
-        const tagElement = tagTemplate.cloneNode(true).querySelector(".dropdown-tag-item-name")
-        tagElement.textContent = tag
+        tagList.forEach(tag => {
+            const tagElement = tagTemplate.cloneNode(true).querySelector(".dropdown-tag-item-name")
+            tagElement.textContent = tag
 
-        tagElement.onclick = () => {
-            onClickTag?.(tag)
+            tagElement.onclick = () => {
+                onClickTag?.(tag)
+                tagElement.style.display = "none"
+
+                // To add the selected tags
+                addTag(tag, tagContainer)
+            }
+            tagContainer.appendChild(tagElement)
+        })
+
+        this.name = name
+        this.originalTags = tagList
+        this.tagContainer = tagContainer
+    }
+
+    update(newTagList) {
+        this.tagContainer.querySelectorAll(".dropdown-tag-item-name").forEach(tagElement => {
             tagElement.style.display = "none"
-
-            // To add the selected tags
-            addTag(tag, tagContainer)
-        }
-        tagContainer.appendChild(tagElement)
-    })
+            if (newTagList.find ( tag => tag.toLowerCase() === tagElement.textContent.toLowerCase())) {
+                tagElement.style.display = "flex"
+            }
+        })
+    }
 }
