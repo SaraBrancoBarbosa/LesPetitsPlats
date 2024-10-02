@@ -752,6 +752,14 @@ video {
   max-width: 56rem;
 }
 
+.max-w-\[1400px\]{
+  max-width: 1400px;
+}
+
+.max-w-\[860px\]{
+  max-width: 860px;
+}
+
 .flex-1{
   flex: 1 1 0%;
 }
@@ -983,6 +991,10 @@ video {
 
 .pt-6{
   padding-top: 1.5rem;
+}
+
+.pt-7{
+  padding-top: 1.75rem;
 }
 
 .text-center{
