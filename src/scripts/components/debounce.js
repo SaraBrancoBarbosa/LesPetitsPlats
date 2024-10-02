@@ -1,12 +1,3 @@
-// Ecrire trois caractères minimum pour lancer la recherche
-export function setInputField(inputValue) {
-  if(inputValue.length >= 3){
-      // Commencer la recherche
-  } else {
-      // Laisser comme tel
-  }
-}
-
 export const debounce = (callback, wait) => {
     let timeoutId = null;
     return (...args) => {
@@ -17,14 +8,10 @@ export const debounce = (callback, wait) => {
     };
 }
 
-// Pour utiliser ensuite le debounce :
 /*
+Pour utiliser ensuite le debounce :
 
-const handleMouseMove = debounce((mouseEvent) => {
-  // Do stuff with the event!
-}, 350);
+const fonctionDébouncée = debounce(fonction, 350);
 
-document.addEventListener('mousemove', handleMouseMove);    // Add listener
-document.removeEventListener('mousemove', handleMouseMove); // Remove listener
-
+document.addEventListener("mon input", fonctionDébouncée);
 */
