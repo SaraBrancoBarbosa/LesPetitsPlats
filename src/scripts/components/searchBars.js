@@ -1,9 +1,13 @@
+import { updateRecipeCount } from "../app.js"
 /*********** Search recipes - main search bar ***********/
 
 // Fonction 1 : lancer la recherche avec la main search bar
 export function searchRecipes() {
     let filterInput = document.querySelector(".inputSearchBarHeader").value
     filterInput = filterInput.toLowerCase()
+
+    // On crée une variable pour les recettes visibles (pour pouvoir incrémenter ensuite le compteur)
+    let displayedRecipesCount = 0
     
     // Pour que la recherche ne commence qu'à partir de 3 caractères. En dessous de 3, on affiche tout
     if (filterInput.length < 3) {
@@ -13,7 +17,11 @@ export function searchRecipes() {
         recipes.forEach(recipe => {
             recipe.style.display = "flex"
         })
-        return;
+
+        // Pour mettre à jour le compteur avec le nombre total de recettes (sinon quand on efface, le nombre ne change pas)
+        updateRecipeCount(recipes.length)
+
+        return
     }
 
     const recipiesContainer = document.querySelector(".recipes-main-container")
@@ -32,7 +40,13 @@ export function searchRecipes() {
         
         // Pour cacher ou réafficher les recettes en fonction du résultat
         recipe.style.display = isMatch ? "flex" : "none"
+
+        // On incrémente le compteur avec les recettes visibles
+        if (isMatch) displayedRecipesCount++
         });
+
+        // Et donc on update le compteur avec le nombre de recettes visibles
+        updateRecipeCount(displayedRecipesCount)
 }
 
 export function enableClearInputText (input, button) {
@@ -57,6 +71,8 @@ export function enableClearInputText (input, button) {
     function deleteText() {
         input.value = ""
         button.style.display = "none"
+
+        // On met la recherche à jour quand on supprime le texte
         searchRecipes()
     }
 

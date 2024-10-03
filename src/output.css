@@ -596,6 +596,10 @@ video {
   pointer-events: none;
 }
 
+.visible{
+  visibility: visible;
+}
+
 .static{
   position: static;
 }
@@ -744,6 +748,10 @@ video {
   width: 100%;
 }
 
+.w-32{
+  width: 8rem;
+}
+
 .min-w-52{
   min-width: 13rem;
 }
@@ -752,8 +760,8 @@ video {
   max-width: 56rem;
 }
 
-.max-w-\[1400px\]{
-  max-width: 1400px;
+.max-w-\[1440px\]{
+  max-width: 1440px;
 }
 
 .max-w-\[860px\]{

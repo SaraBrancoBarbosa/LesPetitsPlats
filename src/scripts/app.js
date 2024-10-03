@@ -8,6 +8,12 @@ import { DropdownTag } from "./components/dropdownTag.js"
 
 /*********** Displaying the recipes cards ***********/
 
+// Pour mettre à jour le compteur de recettes (aussi exportée dans la searchBar pour le moment)
+export function updateRecipeCount(count) {
+    const recipeCountElement = document.querySelector(".recipes-count")
+    recipeCountElement.textContent = `${count} recettes`
+}
+
 // To display the recipes cards
 async function displayData(recipes) {
     const recipiesMainContainer = document.querySelector(".recipes-main-container")
@@ -19,6 +25,9 @@ async function displayData(recipes) {
         const recipeCardDOM = getRecipeCardDOM(recipe)
         recipiesMainContainer.appendChild(recipeCardDOM)
     });
+
+    // Pour mettre à jour le compteur avec le nombre de recettes affichées (sinon ça affiche 1500 au début, et ça prend le nombre correct une fois les recherches lancées seulement)
+    updateRecipeCount(limitedDisplayRecipes.length)
 }
 
 /*********** Initiation ***********/
@@ -27,13 +36,11 @@ async function displayData(recipes) {
 async function init() {
     const { recipes } = await getRecipes()
 
-
 // Pour "débouncer" searchRecipes, 350ms de délai
 const debouncedSearchRecipes = debounce(searchRecipes, 350)
 
-// Ajoutez un écouteur d'événements sur la barre de recherche
+// AddEventListener sur la barre de recherche (l'input)
 document.querySelector(".inputSearchBarHeader").addEventListener("input", debouncedSearchRecipes)
-
 
     const ingredients = []
     recipes.forEach(recipe => {
