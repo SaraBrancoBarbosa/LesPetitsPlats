@@ -15,11 +15,11 @@ export function updateRecipeCount(count) {
 }
 
 // To display the recipes cards
-async function displayData(recipes) {
+async function displayData(recipes, page=0, itemsPerPage=-1) {
     const recipiesMainContainer = document.querySelector(".recipes-main-container")
-
+    
     // Si je limite à 10, toutes les recettes ne sont pas prises en compte lors de la recherche...
-    const limitedDisplayRecipes = recipes.slice(0, 50)
+    const limitedDisplayRecipes = itemsPerPage > 0 ? recipes.slice(page * itemsPerPage, (page + 1) * itemsPerPage) : recipes
 
     limitedDisplayRecipes.forEach((recipe) => {
         const recipeCardDOM = getRecipeCardDOM(recipe)
@@ -27,7 +27,7 @@ async function displayData(recipes) {
     });
 
     // Pour mettre à jour le compteur avec le nombre de recettes affichées (sinon ça affiche 1500 au début, et ça prend le nombre correct une fois les recherches lancées seulement)
-    updateRecipeCount(limitedDisplayRecipes.length)
+    updateRecipeCount(recipes.length)
 }
 
 /*********** Initiation ***********/
