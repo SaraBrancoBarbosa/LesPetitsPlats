@@ -36,11 +36,11 @@ async function displayData(recipes) {
 async function init() {
     const { recipes } = await getRecipes()
 
-// Pour "débouncer" searchRecipes, 350ms de délai
-const debouncedSearchRecipes = debounce(searchRecipes, 350)
+    // Pour "débouncer" searchRecipes, 350ms de délai
+    const debouncedSearchRecipes = debounce(searchRecipes, 350)
 
-// AddEventListener sur la barre de recherche (l'input)
-document.querySelector(".inputSearchBarHeader").addEventListener("input", debouncedSearchRecipes)
+    // AddEventListener sur la barre de recherche (l'input)
+    document.querySelector(".inputSearchBarHeader").addEventListener("input", debouncedSearchRecipes)
 
     const ingredients = []
     recipes.forEach(recipe => {
