@@ -1,4 +1,4 @@
-import { updateRecipeCount } from "../app.js"
+import { updateRecipesCount } from "../app.js"
 /*********** Search recipes - main search bar ***********/
 
 // Fonction 1 : lancer la recherche avec la main search bar
@@ -19,7 +19,7 @@ export function searchRecipes() {
         })
 
         // Pour mettre à jour le compteur avec le nombre total de recettes (sinon quand on efface, le nombre ne change pas)
-        updateRecipeCount(recipes.length)
+        updateRecipesCount(recipes.length)
 
         return
     }
@@ -46,7 +46,7 @@ export function searchRecipes() {
         });
 
         // Et donc on update le compteur avec le nombre de recettes visibles
-        updateRecipeCount(displayedRecipesCount)
+        updateRecipesCount(displayedRecipesCount)
 }
 
 export function enableClearInputText (input, button) {
@@ -62,7 +62,6 @@ export function enableClearInputText (input, button) {
         // Displays the button only if the field is not empty
         if (input.value) {
             button.style.display = "flex"
-            input.classList.add("[&::-webkit-search-cancel-button]:hidden")
         } else {
             button.style.display = "none"
         }

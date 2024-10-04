@@ -38,7 +38,9 @@ function updateTagContainerDisplay() {
 
 // Fonction 2 : filter tags
 export class DropdownTag { 
+
     constructor({name, id, parent, tagList, onClickTag = () => {}}) {
+
         const tagTemplate = document.getElementById("template-dropdown-tag-item").content
         const dropdown = buildDropdown (name, id, parent)
         const tagContainer = dropdown.querySelector(".dropdown-tag-container")
@@ -60,6 +62,7 @@ export class DropdownTag {
         this.name = name
         this.originalTags = tagList
         this.tagContainer = tagContainer
+        
     }
 
     update(newTagList) {
