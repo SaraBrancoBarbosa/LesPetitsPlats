@@ -806,10 +806,6 @@ video {
   align-items: center;
 }
 
-.justify-end{
-  justify-content: flex-end;
-}
-
 .justify-center{
   justify-content: center;
 }
@@ -935,7 +931,7 @@ video {
 }
 
 .bg-header{
-  background-image: url('../public/assets/img/header-background.png');
+  background-image: url('../assets/img/header-background.png');
 }
 
 .bg-none{

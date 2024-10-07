@@ -28,7 +28,7 @@ export default {
         "filters" : "repeat(auto-fill, minmax(172px, 1fr))",
       },
       backgroundImage : {
-        "header" : "url('../public/assets/img/header-background.png')"
+        "header" : "url('../assets/img/header-background.png')"
       },
     },
   },
