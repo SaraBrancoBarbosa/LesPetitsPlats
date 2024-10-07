@@ -596,10 +596,6 @@ video {
   pointer-events: none;
 }
 
-.visible{
-  visibility: visible;
-}
-
 .static{
   position: static;
 }
@@ -683,6 +679,10 @@ video {
   display: none;
 }
 
+.h-10{
+  height: 2.5rem;
+}
+
 .h-6{
   height: 1.5rem;
 }
@@ -736,6 +736,10 @@ video {
   min-height: 730px;
 }
 
+.w-10{
+  width: 2.5rem;
+}
+
 .w-16{
   width: 4rem;
 }
@@ -746,10 +750,6 @@ video {
 
 .w-full{
   width: 100%;
-}
-
-.w-32{
-  width: 8rem;
 }
 
 .min-w-52{
@@ -804,6 +804,10 @@ video {
 
 .items-center{
   align-items: center;
+}
+
+.justify-end{
+  justify-content: flex-end;
 }
 
 .justify-center{
@@ -870,6 +874,10 @@ video {
 
 .overflow-y-auto{
   overflow-y: auto;
+}
+
+.rounded{
+  border-radius: 0.25rem;
 }
 
 .rounded-3xl{
@@ -1102,10 +1110,7 @@ video {
   transition-duration: 300ms;
 }
 
-/*
-Dans le terminal, rentrer ça pour watch tailwind (mot clé du package.json):
-npm run tailwind
-*/
+/* To run tailwind: npm run tailwind */
 
 .icon_filter {
   transform: rotate(180deg);
@@ -1136,6 +1141,16 @@ npm run tailwind
 
 .focus\:placeholder-transparent:focus::placeholder{
   color: transparent;
+}
+
+.active\:bg-yellow:active{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 209 91 / var(--tw-bg-opacity));
+}
+
+.active\:text-black:active{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px){

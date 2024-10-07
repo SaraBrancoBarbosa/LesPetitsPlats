@@ -6,10 +6,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-Dans le terminal, rentrer ça pour watch tailwind (mot clé du package.json):
-npm run tailwind
-*/
+/* To run tailwind: npm run tailwind */
 
 .icon_filter {
     transform: rotate(180deg);

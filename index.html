@@ -65,7 +65,6 @@
           <div class="filter_container grid sm:grid-cols-1 md:grid-cols-filters gap-y-6 gap-x-14 w-full">
           </div>
           
-          <!-- Le nombre devra se mettre à jour -->
           <div class="recipes-count w-full lg:w-32 font-anton text-2xl text-right">1500 recettes</div>
           
         </div>
@@ -77,6 +76,10 @@
         <div class="recipes-main-container grid lg:grid-cols-card md:grid-cols-2 gap-14 justify-items-center pt-6">
         </div>
 
+        <!-- Cards pagination -->
+        <div class="recipes-pagination flex gap-2 justify-center items-center">
+        </div>
+
       </main>
       
     </div>
@@ -84,7 +87,8 @@
     <div id="dropdown-clickawaylistener" class="hidden fixed top-0 left-0 bottom-0 right-0 bg-black/0 z-[1000]"></div>
 
     <!-- Templates -->
-    <!-- Filter dropdown-->
+
+    <!-- Filter dropdown -->
     <template id="template-component-dropdown">
       <!-- Dropdown button -->
       <div class="dropdown-container md:max-w-52 w-full bg-white rounded-lg relative z-[1001]">
@@ -114,19 +118,23 @@
             </div>
           </div>
 
+          <!-- Tag container -->
           <div class="flex flex-col dropdown-tag-container max-h-[250px] overflow-y-auto">
           </div> 
         </div>
+
       </div>
     </template>
+
+    <!-- Tag name -->
     <template id="template-dropdown-tag-item">
       <p class="dropdown-tag-item-name filter-items px-4 py-2 first-letter:uppercase cursor-pointer hover:bg-yellow transition-colors duration-300">TAG-NAME</p>
     </template>
 
-    <!-- Filter selected items -->
+    <!-- Filter selected tag -->
     <template id="selected-tag-button">
         <button class="selected_tag flex justify-between items-center px-4 rounded-lg min-w-52 h-[48px] gap-2 bg-yellow">
-          <span id="selected_tag_name" class="first-letter:uppercase">SELECTED-TAG-NAME</span>
+          <span class="selected_tag_name first-letter:uppercase">SELECTED-TAG-NAME</span>
           <i class="fa-solid fa-xmark"></i>
         </button>
     </template>
@@ -154,7 +162,6 @@
             </div>
 
           </div>
-
         </figcaption>
 
         <div class="flex justify-center items-center text-xs bg-yellow rounded-xl w-16 h-7 absolute top-6 right-6">
@@ -163,5 +170,11 @@
 
       </figure>
     </template>
+
+    <!-- Card pagination -->
+    <template id="template-pagination-button">
+      <span class="pagination-button flex items-center justify-center rounded text-white bg-black hover:text-black w-10 h-10 hover:bg-yellow active:text-black active:bg-yellow"></span>
+    </template>
+
   </body>
 </html>
