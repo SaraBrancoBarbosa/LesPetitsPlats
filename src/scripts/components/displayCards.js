@@ -1,23 +1,8 @@
 import { getRecipeCardDOM } from "../templates/cardRecipe.js"
 
-/*********** Building the recipes cards and the recipes counter ***********/
-
-export const buildCards = (recipes) => {
-    const container = document.querySelector(".recipes-main-container")
-    recipes.forEach((recipe) => {
-        const recipeCardDOM = getRecipeCardDOM(recipe)
-        container.appendChild(recipeCardDOM)
-    })
-}
-
-export function updateRecipesCount(count) {
-    const recipeCountElement = document.querySelector(".recipes-count")
-    recipeCountElement.textContent = `${count} recettes`
-}
-
 /*********** Displaying the recipes cards + pagination system ***********/
 
-export const displayData = async (recipes, page=1, itemsPerPage=10) => {    
+export const displayCards = async (recipes, page=1, itemsPerPage=10) => {    
     const paginated = itemsPerPage > 0 ? recipes.slice((page-1) * itemsPerPage, page * itemsPerPage) : recipes
 
     const container = document.querySelector(".recipes-main-container")
@@ -57,7 +42,7 @@ const updatePagination = (recipes, page, itemsPerPage) => {
                 (i === ">") ? page +1 : 
                 i
             ), totalPages)
-            displayData(recipes, p, itemsPerPage)
+            displayCards(recipes, p, itemsPerPage)
         }
         pagination.appendChild(btn)            
     }    
@@ -69,5 +54,3 @@ const recipiesContainer = document.querySelector(".recipes-main-container")
 recipes.forEach(recipe => {
     recipe.style.display = "flex"
 })
-
-updateRecipesCount(recipes.length)
