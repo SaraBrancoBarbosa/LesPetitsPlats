@@ -24,7 +24,7 @@ export default {
         "sm": "0.875rem",
       },
       gridTemplateColumns: {
-        "card": "repeat(auto-fit, minmax(380px, 1fr))",
+        "card": "repeat(auto-fit, minmax(340px, 1fr))",
         "filters" : "repeat(auto-fill, minmax(172px, 1fr))",
       },
       backgroundImage : {

@@ -27,7 +27,7 @@
             <img 
               src="./public/assets/logo/logo.png" 
               alt="Logo de Les Petits Plats, page d'accueil"
-              class="h-6"
+              class="h-6 w-full"
               />
           </a>
         </nav>
@@ -62,7 +62,7 @@
         <!-- Filter -->
         <div class="w-full filter flex flex-col-reverse lg:flex-row justify-between items-center gap-10">
           
-          <div class="filter_container grid sm:grid-cols-1 md:grid-cols-filters gap-y-6 gap-x-14 w-full">
+          <div class="filter_container grid sm:grid-cols-1 md:grid-cols-filters gap-y-6 gap-x-16 w-full">
           </div>
           
           <!-- Recipes count -->
@@ -92,7 +92,7 @@
     <!-- Filter dropdown -->
     <template id="template-component-dropdown">
       <!-- Dropdown button -->
-      <div class="dropdown-container md:max-w-52 w-full bg-white rounded-lg relative z-[1001]">
+      <div class="dropdown-container md:w-52 w-full bg-white rounded-lg relative z-[1001]">
         <button id="filter_dropdown_button" class="button_filter px-4 h-[48px] flex justify-between items-center w-full appearance-none">
           <span id="filter_dropdown_button_name">DROPDOWN-NAME</span>
           <i class="fa-solid fa-chevron-up pointer-events-none icon_filter"></i>
@@ -106,7 +106,7 @@
               <input 
                 type="search" 
                 placeholder="" 
-                class="flex-1 w-full inputSearchBarFilter outline-none appearance-none text-grey focus:placeholder-transparent bg-none"
+                class="flex-1 w-full [&::-webkit-search-cancel-button]:hidden inputSearchBarFilter outline-none appearance-none text-grey focus:placeholder-transparent bg-none"
                 />
                 
               <button class="button_delete_input_text_dropdown text-sm text-grey hidden">
@@ -142,7 +142,7 @@
 
     <!-- Template recipe card -->
     <template id="template-card">
-      <figure class="card flex flex-col gap-7 bg-white w-full min-h-[730px] max-w-[860px] rounded-3xl relative drop-shadow-md">
+      <figure class="card flex flex-col gap-7 bg-white w-full min-h-[730px] max-w-[380px] rounded-3xl relative drop-shadow-md">
 
         <img class="card_img w-full h-[250px] object-cover rounded-t-3xl" src="">
 
@@ -174,7 +174,7 @@
 
     <!-- Card pagination -->
     <template id="template-pagination-button">
-      <span class="pagination-button flex items-center justify-center rounded text-white bg-black hover:text-black w-10 h-10 hover:bg-yellow active:text-black active:bg-yellow"></span>
+      <span class="pagination-button flex items-center justify-center rounded cursor-pointer text-white bg-black hover:text-black w-10 h-10 hover:bg-yellow"></span>
     </template>
 
   </body>
