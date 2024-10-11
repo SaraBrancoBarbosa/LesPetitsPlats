@@ -33,6 +33,13 @@ const updatePagination = (recipes, page, itemsPerPage) => {
     for (let i of pages) {
         const btn = document.getElementById("template-pagination-button").content.cloneNode(true).querySelector(".pagination-button")
         btn.textContent = i
+
+        // To change the color of the active btn
+        if (i === page) {
+            btn.style.color = "black"
+            btn.style.backgroundColor = "#FFD15B"
+        }
+
         btn.onclick=() => {
             // Math.max(1, ...) & Math.min(..., totalPages): the value will never be less than 1, nor greater than the total number of pages
             const p = Math.min(Math.max(1, 
@@ -42,10 +49,20 @@ const updatePagination = (recipes, page, itemsPerPage) => {
                 (i === ">") ? page +1 : 
                 i
             ), totalPages)
-            displayCards(recipes, p, itemsPerPage)
+            
+            // To scroll up to the first recipe when changing page
+            if (p != page) {
+                displayCards(recipes, p, itemsPerPage)
+                const scrollUpToFirstRecipe = document.querySelector(".card")
+                if (scrollUpToFirstRecipe) {
+                    scrollUpToFirstRecipe.scrollIntoView({ block: "start", behavior: "smooth" })
+                }
+            } else {
+                displayCards(recipes, p, itemsPerPage)
+            }
         }
-        pagination.appendChild(btn)            
-    }    
+        pagination.appendChild(btn)
+    }
 }
 
 const recipiesContainer = document.querySelector(".recipes-main-container")
