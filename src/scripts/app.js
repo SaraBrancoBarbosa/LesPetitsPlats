@@ -7,6 +7,8 @@ import { initClickAwayDropdown } from "./components/dropdown.js"
 import { DropdownTag, updateDropdowns } from "./components/dropdownTag.js"
 import { addSelectedTag } from "./components/selectedTagList.js"
 
+import { filterInputsearchNative, filterInputsearchFunctional } from "./lib/filters.js"
+
 /*********** Initiation ***********/
 
 // To build the recipes count
@@ -141,4 +143,24 @@ window.onload = async () => {
 
     // To display the recipes cards (items per page: 10)
     displayCards(recipes, 1, 10)
+
+    /*********** Testing native loops and Functional Programming performances ***********/
+
+    const measurePerformance = (filterFunction, list, value) => {
+        console.time("Performance Test")
+        const result = filterFunction(list, value)
+        console.timeEnd("Performance Test")
+        return result
+    }
+
+    // Exemple (to try with multiple elements)
+    const filterValue = "oeuf"
+
+    // Native loops performance
+    console.log("Testing Native Loops:")
+    measurePerformance(filterInputsearchNative, recipes, filterValue)
+
+    // Functional programming performance
+    console.log('Testing Functional Programming:')
+    measurePerformance(filterInputsearchFunctional, recipes, filterValue)
 }
