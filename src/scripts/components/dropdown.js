@@ -33,6 +33,7 @@ export const buildDropdown = (name, id, parent = null) => {
     button.onclick = () => {
         const dropdownFilter = dropdown.querySelector(".dropdown_filter")
         const chevron = dropdown.querySelector(".icon_filter")
+        const inputSearchBarFilter = dropdown.querySelector(".inputSearchBarFilter")
         
         // To open and close the dropdowns
         if (dropdownFilter.style.display === "flex") {
@@ -44,6 +45,7 @@ export const buildDropdown = (name, id, parent = null) => {
             dropdownFilter.style.display = "flex"
             chevron.classList.add("icon_open")
             dropdownClickAway.style.display = "flex"
+            inputSearchBarFilter.focus()
         }
     }
 
