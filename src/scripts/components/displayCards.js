@@ -2,7 +2,7 @@ import { getRecipeCardDOM } from "../templates/cardRecipe.js"
 
 /*********** Displaying the recipes cards + pagination system ***********/
 
-export const displayCards = async (recipes, page=1, itemsPerPage=10) => {    
+export const displayCards = async (recipes, page=1, itemsPerPage=9) => {    
     const paginated = itemsPerPage > 0 ? recipes.slice((page-1) * itemsPerPage, page * itemsPerPage) : recipes
 
     const container = document.querySelector(".recipes-main-container")

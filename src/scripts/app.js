@@ -141,8 +141,8 @@ window.onload = async () => {
     
     updateRecipesCount(recipes.length)
 
-    // To display the recipes cards (items per page: 10)
-    displayCards(recipes, 1, 10)
+    // To display the recipes cards (items per page: 9)
+    displayCards(recipes, 1, 9)
 
     /*********** Testing native loops and Functional Programming performances ***********/
 
