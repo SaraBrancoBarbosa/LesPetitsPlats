@@ -12,7 +12,7 @@ export const debounce = (callback, delay) => {
                 clearTimeout(timeoutId)
                 timeoutId = null
                 map.set(callback, null)
-            }, delay > 0 ? delay : 500 + Math.ceil(Math.random() * 1500))
+            }, delay > 0 ? delay : 500 + Math.ceil(Math.random() * 500))
 
             map.set(callback, timeoutId)
 
