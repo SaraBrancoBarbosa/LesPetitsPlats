@@ -1,13 +1,12 @@
 import { getRecipes } from "./api/api.js"
 import { debounce } from "./lib/debounce.js"
-import { searchRecipes } from "./lib/filters.js"
+import { searchRecipes, filterInputsearchNative, filterInputsearchFunctional } from "./lib/filters.js"
 import { displayCards } from "./components/displayCards.js"
 import { searchBarInput } from "./components/searchBar.js"
 import { initClickAwayDropdown } from "./components/dropdown.js"
 import { DropdownTag, updateDropdowns } from "./components/dropdownTag.js"
 import { addSelectedTag } from "./components/selectedTagList.js"
-
-import { filterInputsearchNative, filterInputsearchFunctional } from "./lib/filters.js"
+import { suggestRecipes } from "./components/suggestRecipes.js"
 
 /*********** Initiation ***********/
 
@@ -16,12 +15,6 @@ const updateRecipesCount = (count) => {
     const recipeCountElement = document.querySelector(".recipes-count")
     recipeCountElement.textContent = `${count} recettes`
 }
-
-const filterMapFrEn = new Map([
-    ["ingrédients", "ingredient"],
-    ["appareils", "appliance"],
-    ["ustensiles", "utensil"]
-])
 
 window.onload = async () => {
     const { recipes } = await getRecipes()
@@ -54,6 +47,12 @@ window.onload = async () => {
     })
 
     const filterAndDisplayRecipes = () => {
+        const filterMapFrEn = new Map([
+            ["ingrédients", "ingredient"],
+            ["appareils", "appliance"],
+            ["ustensiles", "utensil"]
+        ])
+
         // To get the input value and convert it to lowercase to facilitate comparison
         let filterInput = document.querySelector(".inputSearchBarHeader").value
         filterInput = filterInput.toLowerCase()
@@ -67,26 +66,15 @@ window.onload = async () => {
 
         // To filter the list of recipes (stored in "recipes") based on the value of the input and the list of the selected tags
         const filtered = searchRecipes(recipes, filterInput, tagsList)
-        const container = document.querySelector(".recipes-main-container")
         const pagination = document.querySelector(".recipes-pagination")
-
-        // To display the filtered recipes / the no result message
+        
+        // To display the filtered recipes
         if (filtered.length > 0) {
             displayCards(filtered)
             pagination.style.display = "flex"
         } else {
-            container.innerHTML = ""
-            const noResult = document.createElement("div")
-
-            // For the noResult message, we collect the text of the input and the names of the selected tags
-            const selectedTags = tagsList.map(tag => tag.value).join(", ")
-            const searchTerm = filterInput ? `« ${filterInput} »` : ""
-            noResult.textContent = `Aucune recette ne contient ${searchTerm} ${selectedTags ? "et les tags : " + selectedTags : ""}. Vous pouvez chercher « tarte aux pommes », « poisson », etc.`
-            
-            container.appendChild(noResult)
-
-            // When there is no result, the pagination disappears
-            pagination.style.display = "none"
+            // To display the no result message
+            suggestRecipes(inputSearchBarHeader, filterAndDisplayRecipes, tagsList, filterInput, pagination)
         }
 
         // To update the count with the filtered recipes
@@ -143,6 +131,9 @@ window.onload = async () => {
 
     // To display the recipes cards (items per page: 9)
     displayCards(recipes, 1, 9)
+
+
+    
 
     /*********** Testing native loops and Functional Programming performances ***********/
 
