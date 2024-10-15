@@ -1,4 +1,4 @@
-export function searchBarInput (input, button) {
+export const searchBarInput = (input, button) => {
     input?.addEventListener("input", function() {
 
         // HTML tag injection risks
