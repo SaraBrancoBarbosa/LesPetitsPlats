@@ -5,8 +5,9 @@ import { displayCards } from "./components/displayCards.js"
 import { searchBarInput } from "./components/searchBar.js"
 import { initClickAwayDropdown } from "./components/dropdown.js"
 import { DropdownTag, updateDropdowns } from "./components/dropdownTag.js"
-import { addSelectedTag } from "./components/selectedTagList.js"
+import { addSelectedTag } from "./components/selectedTag.js"
 import { suggestRecipes } from "./components/suggestRecipes.js"
+import { pushDropdownData } from "./components/dropdownData.js"
 
 /*********** Initiation ***********/
 
@@ -22,29 +23,9 @@ window.onload = async () => {
     const ingredients = []
     const appliances = []
     const utensils = []
-    
-    // For each recipe: to go through the ingredients/appliances/utensils and add them to their list. toLowerCase(): to facilitate comparison and avoid duplicates
-    recipes.forEach(recipe => {
-        recipe.ingredients.forEach(({ingredient}) => {
-            const lowerIngredient = ingredient.toLowerCase()
-            if (!ingredients.find(ing => lowerIngredient === ing.toLowerCase()))
-                ingredients.push(ingredient)
-        })
-    })
 
-    recipes.forEach(recipe => {
-        const lowerAppliance = recipe.appliance.toLowerCase()
-        if (!appliances.find(app => lowerAppliance === app.toLowerCase()))
-            appliances.push(recipe.appliance)
-    })
-
-    recipes.forEach(recipe => {
-        recipe.utensils.forEach(utensil => {
-        const lowerUtensils = utensil.toLowerCase()
-        if (!utensils.find(ust => lowerUtensils === ust.toLowerCase()))
-            utensils.push(utensil)
-        })
-    })
+    // To define the dropdowns lists and to push the data
+    pushDropdownData(recipes, ingredients, appliances, utensils)
 
     const filterAndDisplayRecipes = () => {
         const filterMapFrEn = new Map([
@@ -86,7 +67,7 @@ window.onload = async () => {
     // To debounce the filter system
     const debounceSearchRecipes = debounce(filterAndDisplayRecipes, -1)
 
-    // To build the filters
+    // To build the dropdown filters
     const filtersContainer = document.querySelector(".filter_container")
     initClickAwayDropdown()
 
