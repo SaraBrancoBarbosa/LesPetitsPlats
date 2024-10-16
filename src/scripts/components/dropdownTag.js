@@ -62,30 +62,42 @@ export class DropdownTag {
     }
 }
 
-export const updateDropdowns = (filtered) => {
-    /* 
-    On cache tous les tags qui ne sont pas dans les recettes affichées
-    Comment faire le lien avec les éléments filtrés par la barre de recherche principale ?
-
-    const tagContainer pour chaque dropdowns { "Ingrédients", "Appareils", "Ustensiles" }
-    const tags-dans-recettes-filtrées pour chaque : { "ingredients", "appliances", "utensils" }
-    const tagElement = document.querySelectorAll(".dropdown-tag-item-name")
-
-    filtered.forEach(recipe => {
-        forEach ingredient dans tags-dans-recettes-filtrées
-        forEach appliances dans tags-dans-recettes-filtrées
-        forEach utensils dans tags-dans-recettes-filtrées
+// Fonction pour vider et remplir uniquement les tags dans les dropdowns
+function clearAndFillDropdownTags(dropdownId, tags) {
+    const dropdown = document.getElementById(dropdownId)
+    const tagContainer = dropdown.querySelector(".dropdown-tag-container")
+    
+    // On vide le conteneur de tags
+    tagContainer.innerHTML = ""
+    
+    // On remplit le conteneur avec les nouveaux tags des recettes filtrées
+    tags.forEach(tag => {
+        const tagTemplate = document.getElementById("template-dropdown-tag-item").content
+        const tagElement = tagTemplate.cloneNode(true).querySelector(".dropdown-tag-item-name")
+        tagElement.textContent = tag
+        tagContainer.appendChild(tagElement)
     })
+}
 
-    dropdowns.forEach() => {
+export function updateDropdowns(filteredRecipes) {
+    const ingredients = new Set()
+    const appliances = new Set()
+    const utensils = new Set()
 
-        tagElements.forEach(tagElement => {
-            Si tagElement fait partie de tags-dans-recettes-filtrées
-                Alors tagElement.style.display = "flex"
-            Sinon
-                tagElement.style.display = "none"
+    filteredRecipes.forEach(recipe => {
+        recipe.ingredients.forEach(({ ingredient }) => {
+            ingredients.add(ingredient.toLowerCase())
+        });
+
+        appliances.add(recipe.appliance.toLowerCase())
+
+        recipe.utensils.forEach(utensil => {
+            utensils.add(utensil.toLowerCase())
         })
-    }
-
-    */ 
+    })
+    
+    // On convertit les sets en tableaux pour mettre à jour les dropdowns
+    clearAndFillDropdownTags("dropdown_ingredients", Array.from(ingredients))
+    clearAndFillDropdownTags("dropdown_appliances", Array.from(appliances))
+    clearAndFillDropdownTags("dropdown_utensils", Array.from(utensils))
 }
