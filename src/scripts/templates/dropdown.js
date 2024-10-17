@@ -1,4 +1,4 @@
-import { searchBarInput } from "./searchBar.js"
+import { searchBarInput } from "../components/searchBar.js"
 
 /*********** Filters dropdown ***********/
 

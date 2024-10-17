@@ -1,4 +1,4 @@
-import { buildDropdown } from "./dropdown.js";
+import { buildDropdown } from "../templates/dropdown.js"
 
 export class DropdownTag { 
 
