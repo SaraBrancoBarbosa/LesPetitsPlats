@@ -1,6 +1,6 @@
 /*********** When there is no recipe found, displays a message to the user with suggestions ***********/
 
-export const suggestRecipes = (inputSearchBarHeader, filterAndDisplayRecipes, tagsList, filterInput, pagination) => {
+export const suggestRecipes = (onClick, tagsList, filterInput, pagination) => {
     const container = document.querySelector(".recipes-main-container")
     container.innerHTML = ""
     const noResult = document.createElement("div")
@@ -16,10 +16,8 @@ export const suggestRecipes = (inputSearchBarHeader, filterAndDisplayRecipes, ta
         
         // To replace the search bar text with the clicked suggestion and to filter again
         span.onclick = () => {
-            inputSearchBarHeader.value = suggestion
-            inputSearchBarHeader.dispatchEvent(new Event("input"))
             // To call the filter function
-            filterAndDisplayRecipes()
+            onClick(suggestion)
         }
         return span
     })

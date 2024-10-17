@@ -49,13 +49,19 @@ window.onload = async () => {
         const filtered = searchRecipes(recipes, filterInput, tagsList)
         const pagination = document.querySelector(".recipes-pagination")
         
+        const handleClickTag = (value) => {
+            inputSearchBarHeader.value = value
+            inputSearchBarHeader.dispatchEvent(new Event("input"))
+            filterAndDisplayRecipes()
+        }
+
         // To display the filtered recipes
         if (filtered.length > 0) {
             displayCards(filtered)
             pagination.style.display = "flex"
         } else {
             // To display the no result message
-            suggestRecipes(inputSearchBarHeader, filterAndDisplayRecipes, tagsList, filterInput, pagination)
+            suggestRecipes(handleClickTag, tagsList, filterInput, pagination)
         }
 
         // To update the count with the filtered recipes
