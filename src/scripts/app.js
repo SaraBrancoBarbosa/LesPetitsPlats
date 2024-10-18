@@ -3,9 +3,7 @@ import { debounce } from "./lib/debounce.js"
 import { searchRecipes, filterInputsearchNative, filterInputsearchFunctional } from "./lib/filters.js"
 import { displayCards } from "./components/displayCards.js"
 import { searchBarInput } from "./components/searchBar.js"
-import { initClickAwayDropdown } from "./templates/dropdown.js"
-import { DropdownTag, updateDropdowns } from "./components/dropdownTag.js"
-import { addSelectedTag } from "./components/selectedTag.js"
+import { initialiseDropdowns, updateDropdowns } from "./components/dropdownTag.js"
 import { suggestRecipes } from "./components/suggestRecipes.js"
 import { pushDropdownData } from "./components/dropdownData.js"
 
@@ -20,6 +18,7 @@ const updateRecipesCount = (count) => {
 window.onload = async () => {
     const { recipes } = await getRecipes()
 
+    // To declare the dropdowns lists
     const ingredients = []
     const appliances = []
     const utensils = []
@@ -35,8 +34,7 @@ window.onload = async () => {
         ])
 
         // To get the input value and convert it to lowercase to facilitate comparison
-        let filterInput = document.querySelector(".inputSearchBarHeader").value
-        filterInput = filterInput.toLowerCase()
+        let filterInput = document.querySelector(".inputSearchBarHeader").value.toLowerCase()
 
         // To create a list of the selected tags. Language conversion with filterMapFrEn
         const tagsList = [...document.querySelectorAll(".selected_tag")].map(element => {
@@ -61,22 +59,32 @@ window.onload = async () => {
             pagination.style.display = "flex"
         } else {
             // To display the no result message
-            suggestRecipes(handleClickTag, tagsList, filterInput, pagination)
+            suggestRecipes(handleClickTag, tagsList, filterInput, pagination, filterAndDisplayRecipes)
         }
 
         // To update the count with the filtered recipes
         updateRecipesCount(filtered.length)
 
-        updateDropdowns(filtered)
+        // To update the dropdowns with the filtered recipes => doesn't work for now
+        updateDropdowns(filtered, debounceSearchRecipes)
     }
 
     // To debounce the filter system
     const debounceSearchRecipes = debounce(filterAndDisplayRecipes, -1)
 
+    // Header's search bar input: to clear the text (by clicking on the delete btn) and to add the debounce event
+    const setupSearchBar = (inputElement, deleteButton) => {
+        searchBarInput(inputElement, deleteButton)
+        inputElement.addEventListener("input", debounceSearchRecipes)
+    }
+    
+    // To configure the search bar
+    const inputSearchBarHeader = document.querySelector(".inputSearchBarHeader")
+    setupSearchBar(inputSearchBarHeader, document.querySelector(".button_delete_input_text_header"))
+
     // To build the dropdown filters
     const filtersContainer = document.querySelector(".filter_container")
-    initClickAwayDropdown()
-
+    
     const dropdowns = [
         { 
             name: "Ingrédients", 
@@ -92,34 +100,13 @@ window.onload = async () => {
             tagList: utensils 
         }
     ]
-        
-    dropdowns.forEach(({ name, id, tagList }) => {
-        new DropdownTag({
-            name,
-            id,
-            parent: filtersContainer,
-            tagList,
-            onclickTag: (...args) => { addSelectedTag(debounceSearchRecipes, ...args) }
-        })
-    })
 
-    /**
-     * onclickTag: this line allows to manage the tag selection logic and to perform a search based on the selected tags
-     * (...args): rest parameters, to accept an indefinite number of arguments as an array
-     * addSelectedTag called with 2 arguments: the debounce and the spread operator (all arguments passed to onclickTag will be passed to addSelectedTag)
-    */
+    initialiseDropdowns(dropdowns, filtersContainer, debounceSearchRecipes)
 
-    // Header's search bar input: to clear the text (by clicking on the delete btn) and to add the debounce event
-    const inputSearchBarHeader = document.querySelector(".inputSearchBarHeader")
-    searchBarInput(inputSearchBarHeader, document.querySelector(".button_delete_input_text_header"))
-    inputSearchBarHeader.addEventListener("input", debounceSearchRecipes)
-    
+    // To update the recipes count and to display the recipes cards (items per page: 9)
     updateRecipesCount(recipes.length)
-
-    // To display the recipes cards (items per page: 9)
     displayCards(recipes, 1, 9)
-
-
+        
     
 
     /*********** Testing native loops and Functional Programming performances ***********/
