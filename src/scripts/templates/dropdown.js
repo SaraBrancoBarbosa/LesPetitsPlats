@@ -20,6 +20,7 @@ const closeAllDropdowns = () => {
 }
 
 export const buildDropdown = (name, id, parent = null) => {
+    initClickAwayDropdown()
     const dropdownClickAway = document.getElementById("dropdown-clickawaylistener")
     const dropdownFragment = document.getElementById("template-component-dropdown").content.cloneNode(true);
     const dropdown = dropdownFragment.querySelector(".dropdown-container")
