@@ -1,6 +1,6 @@
 import { getRecipes } from "./api/api.js"
 import { debounce } from "./lib/debounce.js"
-import { searchRecipes, filterInputsearchNative, filterInputsearchFunctional } from "./lib/filters.js"
+import { searchRecipes } from "./lib/filters.js"
 import { displayCards } from "./components/displayCards.js"
 import { searchBarInput } from "./components/searchBar.js"
 import { updateDropdowns } from "./components/dropdownTag.js"
@@ -70,25 +70,4 @@ window.onload = async () => {
 
     // To call the filter and display recipes function
     filterAndDisplayRecipes()
-
-    /*********** Testing native loops and Functional Programming performances ***********/
-
-    const measurePerformance = (filterFunction, list, value) => {
-        console.time("Performance Test")
-        const result = filterFunction(list, value)
-        console.timeEnd("Performance Test")
-        return result
-    }
-
-    // Exemple (to try with multiple elements)
-    const filterValue = "oeuf"
-
-    // Native loops performance
-    console.log("Testing Native Loops:")
-    measurePerformance(filterInputsearchNative, recipes, filterValue)
-
-    // Functional programming performance
-    console.log("Testing Functional Programming:")
-    measurePerformance(filterInputsearchFunctional, recipes, filterValue)
-
 }
