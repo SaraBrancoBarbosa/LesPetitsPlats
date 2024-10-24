@@ -9,8 +9,8 @@ function updateTagContainerDisplay() {
     }
 }
 
-export function addSelectedTag(update, tagElement, filter, tagName) {
-    //console.log("%cfilter[%s]: %c%s", "color:orange", filter, "color:#8B8000", tagName)
+export function addSelectedTag(updateRecipesCount, tagElement, filter, tagName) {
+    console.log("%cfilter[%s]: %c%s", "color:orange", filter, "color:#8B8000", tagName)
 
     // To create the selected tag
     const selectedTagFragment = document.getElementById("selected-tag-button").content.cloneNode(true)
@@ -27,13 +27,15 @@ export function addSelectedTag(update, tagElement, filter, tagName) {
 
         // To add the removed tag back to the dropdown
         tagElement.style.display = "flex"
-        update?.()
+
+        // To update the recipes count after removing the tag
+        updateRecipesCount?.()
     }
     
     document.querySelector(".filter_tag_container").appendChild(selectedTag)
     
     updateTagContainerDisplay()
 
-    // To update the recipes count
-    update?.()
+    // To update the recipes count after adding the tag
+    updateRecipesCount?.()
 }
