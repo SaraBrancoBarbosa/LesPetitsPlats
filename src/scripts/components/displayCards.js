@@ -22,13 +22,13 @@ const updatePagination = (recipes, page, itemsPerPage) => {
 
     // Math.ceil(): rounds up and returns the smallest integer greater than or equal to a given number (recipes.length: total number of recipes)
     const totalPages = Math.ceil(recipes.length / itemsPerPage)
-    const pages = ["<<", "<"]
+    const pages = totalPages > 1 ? ["<<", "<"] : []
     for (let i = page -2 ; i<= page+2; i++) {
         if (i>0 && i <= totalPages) {
             pages.push(i)
         }
     }
-    pages.push(">", ">>")
+    if (totalPages > 1) pages.push(">", ">>")
 
     for (let i of pages) {
         const btn = document.getElementById("template-pagination-button").content.cloneNode(true).querySelector(".pagination-button")
