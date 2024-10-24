@@ -88,7 +88,7 @@ window.onload = async () => {
     measurePerformance(filterInputsearchNative, recipes, filterValue)
 
     // Functional programming performance
-    console.log('Testing Functional Programming:')
+    console.log("Testing Functional Programming:")
     measurePerformance(filterInputsearchFunctional, recipes, filterValue)
 
 }
