@@ -1,9 +1,10 @@
 import { buildDropdown } from "../templates/dropdown.js"
-import { addSelectedTag } from "./selectedTagButton.js"
+import { updateTagContainerDisplay, addSelectedTag } from "./selectedTagButton.js"
+import { generateListsFromRecipes } from "./listsFromRecipes.js"
 
 export class DropdownTag { 
 
-    // On prend un objet en paramètre, qui contient plusieurs propriétés (qu'on importe de buildDropdown)
+    // To take an object as a parameter, which contains several properties (which are imported from buildDropdown)
     constructor({name, id, parent, tagList, onclickTag = () => {}}) {
 
         const tagTemplate = document.getElementById("template-dropdown-tag-item").content
@@ -13,28 +14,28 @@ export class DropdownTag {
 
         tagList.forEach(tag => {
             const tagElement = tagTemplate.cloneNode(true).querySelector(".dropdown-tag-item-name")
-            // On donne le nom du tag pour le texte qui s'affiche
+            // To give the name of the tag to the displayed text
             tagElement.textContent = tag
 
             tagElement.onclick = () => {
                 onclickTag?.(tagElement, name, tag)
-                // On cache le tag du dropdown, et on l'ajoute dans le tagContainer à la place
+                // To hide the tag from the dropdown, and to add it to the tagContainer instead
                 tagElement.style.display = "none"
             }
             tagContainer.appendChild(tagElement)
         })
 
-        // Quand on écrit dans l'input, ça filtre les listes des tags
+        // To filter the tag lists when writing in the input
         inputSearchBarFilter.addEventListener("input", () => {
             const inputValue = inputSearchBarFilter.value
             this.tagsLists(inputValue)
         })
 
-        // On sauvegarde le nom du dropdown
+        // To save the dropdown name
         this.name = name
-        // On sauvegarde la liste originale des tags
+        // To save the original tags list
         this.originalTags = tagList
-        // On renvoie au conteneur des tags
+        // To return to the tag container
         this.tagContainer = tagContainer
         
     }
@@ -42,7 +43,7 @@ export class DropdownTag {
     tagsLists(inputValue) {
         this.tagContainer.querySelectorAll(".dropdown-tag-item-name").forEach(tagElement => {
             const tag = tagElement.textContent.toLowerCase()
-            // Les tags qui correspondent à ce qu'on écrit dans l'input => flex
+            // To flex the tags corresponding to what the user writes in the input
             if (tag.includes(inputValue)) {
                 tagElement.style.display = "flex"
             } else {
@@ -51,11 +52,11 @@ export class DropdownTag {
         })
     }
 
-    // On prend une nouvelle liste de tags pour update l'affichage dans le dropdown
+    // To take a new list of tags to update the display in the dropdown
     update(newTagList) {
-        // Pour chaque tagElement contenu dans tagContainer
+        // For each tagElement contained in tagContainer
         this.tagContainer.querySelectorAll(".dropdown-tag-item-name").forEach(tagElement => {
-            // Si chaque tagElement de newTagList existe dans le dropdown => on le rend visible
+            // To flex if each tagElement of newTagList exists in the dropdown
             if (newTagList.find ( tag => tag.toLowerCase() === tagElement.textContent.toLowerCase())) {
                 tagElement.style.display = "flex"
             } else { 
@@ -64,70 +65,44 @@ export class DropdownTag {
         })
     }
 }
+    
+export const updateDropdowns = (filtersContainer, filteredRecipes, callback, tagsList) => {    
+    const ingredients = []
+    const appliances = []
+    const utensils = []
 
-// Fonction pour initialiser les dropdowns avec les tags
-export const initialiseDropdowns = (dropdowns, filtersContainer, debounceSearchRecipes) => {
+    generateListsFromRecipes(filteredRecipes, ingredients, appliances, utensils, tagsList)
+
+    const dropdowns = [
+        { 
+            name: "Ingrédients", 
+            id: "dropdown_ingredients", 
+            tagList: ingredients 
+        }, { 
+            name: "Appareils", 
+            id: "dropdown_appliances", 
+            tagList: appliances 
+        }, { 
+            name: "Ustensiles", 
+            id: "dropdown_utensils", 
+            tagList: utensils 
+        }
+    ]
+
     dropdowns.forEach(({ name, id, tagList }) => {
+        // To clear dropdown tags
+        const dropdown = document.getElementById(id)
+        if (dropdown) dropdown.remove()
+
+        // To fill dropdown tags
         new DropdownTag({
             name,
             id,
             parent: filtersContainer,
             tagList,
-            onclickTag: (...args) => { addSelectedTag(debounceSearchRecipes, ...args) }
-
-            /**
-             * onclickTag: this line allows to manage the tag selection logic and to perform a search based on the selected tags
-             * (...args): rest parameters, to accept an indefinite number of arguments as an array
-             * addSelectedTag called with 2 arguments: the debounce and the spread operator (all arguments passed to onclickTag will be passed to addSelectedTag)
-            */
+            onclickTag: (...args) => { addSelectedTag(callback, ...args); callback?.(); }
         })
     })
-}
 
-// Fonction pour vider et remplir uniquement les tags dans les dropdowns
-const clearAndFillDropdownTags = (dropdownId, tags) => {
-    const dropdown = document.getElementById(dropdownId)
-    const tagContainer = dropdown.querySelector(".dropdown-tag-container")
-    
-    // On vide le conteneur de tags
-    tagContainer.innerHTML = ""
-    
-    // On remplit le conteneur avec les nouveaux tags des recettes filtrées
-    tags.forEach(tag => {
-        const tagTemplate = document.getElementById("template-dropdown-tag-item").content
-        const tagElement = tagTemplate.cloneNode(true).querySelector(".dropdown-tag-item-name")
-        tagElement.textContent = tag
-        
-        tagContainer.appendChild(tagElement)
-    })
-    //console.log(debounceSearchRecipes, "clearAndFillDropdownTags")
-}
-    
-export const updateDropdowns = (filteredRecipes) => {    
-    const ingredients = new Set()
-    const appliances = new Set()
-    const utensils = new Set()
-
-    filteredRecipes.forEach(recipe => {
-        recipe.ingredients.forEach(({ ingredient }) => {
-            ingredients.add(ingredient)
-            //ingredients.add(ingredient.toLowerCase())
-        });
-
-        appliances.add(recipe.appliance)
-        //appliances.add(recipe.appliance.toLowerCase())
-
-        recipe.utensils.forEach(utensil => {
-            utensils.add(utensil)
-            //utensils.add(utensil.toLowerCase())
-        })
-    })
-    
-    // On convertit les sets en tableaux pour mettre à jour les dropdowns
-    clearAndFillDropdownTags("dropdown_ingredients", Array.from(ingredients))
-    clearAndFillDropdownTags("dropdown_appliances", Array.from(appliances))
-    clearAndFillDropdownTags("dropdown_utensils", Array.from(utensils))
-    
-    console.log(clearAndFillDropdownTags())
-
+    updateTagContainerDisplay()
 }
