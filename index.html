@@ -42,12 +42,12 @@
 
             <input type="search" name="recipe-search" placeholder="Rechercher une recette, un ingrédient..." class="inputSearchBarHeader [&::-webkit-search-cancel-button]:hidden flex-1 h-8 outline-none bg-transparent placeholder-grey text-grey focus:placeholder-transparent"/>
             
-            <button class="button_delete_input_text_header text-3xl text-grey hidden">
-              <i class="fa-solid fa-xmark"></i>
+            <button type="button" class="button_delete_input_text_header text-3xl text-grey hidden">
+              <i class="fa-solid fa-xmark"><span class="sr-only">Close button</span></i>
             </button>
 
-            <button type="submit" class="flex justify-center items-center w-[52px] h-[52px] rounded-lg bg-black hover:bg-yellow text-3xl text-white hover:text-black transition-colors duration-300">
-              <i class="fa-solid fa-magnifying-glass content-center w-full h-full"></i>
+            <button type="button" class="flex justify-center items-center w-[52px] h-[52px] rounded-lg bg-black hover:bg-yellow text-3xl text-white hover:text-black transition-colors duration-300">
+              <i class="fa-solid fa-magnifying-glass content-center w-full h-full"><span class="sr-only">Search button</span></i>
             </button>
 
           </div>
@@ -109,12 +109,12 @@
                 class="flex-1 w-full [&::-webkit-search-cancel-button]:hidden inputSearchBarFilter outline-none appearance-none text-grey focus:placeholder-transparent bg-none"
                 />
                 
-              <button class="button_delete_input_text_dropdown text-sm text-grey hidden">
-                <i class="fa-solid fa-xmark"></i>
+              <button type="button" class="button_delete_input_text_dropdown text-sm text-grey hidden">
+                <i class="fa-solid fa-xmark"><span class="sr-only">Close button</span></i>
               </button>
 
-              <button type="submit" class="flex items-center text-sm text-grey">
-                <i class="fa-solid fa-magnifying-glass content-center"></i>
+              <button type="button" class="flex items-center text-sm text-grey">
+                <i class="fa-solid fa-magnifying-glass content-center"><span class="sr-only">Search button</span></i>
               </button>
             </div>
           </div>
