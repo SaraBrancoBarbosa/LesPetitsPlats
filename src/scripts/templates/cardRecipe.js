@@ -15,7 +15,7 @@ const managePlural = (unit, quantity) => {
 }
 
 // Creating the card elements
-export function getRecipeCardDOM(cardRecipe) {
+export const getRecipeCardDOM = (cardRecipe) => {
     const { image, name, ingredients, time, description } = cardRecipe
 
     const template = document.getElementById("template-card")

@@ -21,7 +21,7 @@ Func 3 =
 */
 
 // Func 3
-export function searchRecipes(list, value, tagsList) {
+export const searchRecipes = (list, value, tagsList) => {
     const inNameOrIngredientsOrDescription = filterInputsearchFunctional(list, value)
     const inTags = filterTags(inNameOrIngredientsOrDescription, tagsList)
 
