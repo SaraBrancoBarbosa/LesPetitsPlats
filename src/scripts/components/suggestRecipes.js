@@ -8,7 +8,7 @@ const clearSelectedTags = () => {
     })
 }
 
-export const suggestRecipes = (onClick, tagsList, filterInput, pagination, filterAndDisplayRecipes) => {
+export const suggestRecipes = (onClick, tagsList, filterInput, pagination) => {
     const container = document.querySelector(".recipes-main-container")
     container.innerHTML = ""
     const noResult = document.createElement("div")
@@ -38,8 +38,6 @@ export const suggestRecipes = (onClick, tagsList, filterInput, pagination, filte
     // The event to clear the selected tags
     noResult.onclick = () => {
         clearSelectedTags()
-        // The filter function to update the display
-        filterAndDisplayRecipes()
     }
 
     // To add the suggestions at the end of the message
