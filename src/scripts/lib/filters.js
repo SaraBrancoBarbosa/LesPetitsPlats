@@ -22,7 +22,7 @@ Func 3 =
 
 // Func 3
 export const searchRecipes = (list, value, tagsList) => {
-    const inNameOrIngredientsOrDescription = filterInputsearchFunctional(list, value)
+    const inNameOrIngredientsOrDescription = filterInputsearchNative(list, value)
     const inTags = filterTags(inNameOrIngredientsOrDescription, tagsList)
 
     return inTags
@@ -49,22 +49,6 @@ export const filterInputsearchNative = (list, value) => {
             result.push(recipe)
     }
     return result
-}
-
-// Func 1
-// Functional programming
-export const filterInputsearchFunctional = (list, value) => {
-    // Below 3 characters, the entire list is returned
-    if (value.length < 3) { return [...list] }
-
-    return list.filter(recipe => {
-        const name = recipe.name.toLowerCase()
-        const ingredients = recipe.ingredients.map(ingredient => ingredient.ingredient.toLowerCase())
-        const description = recipe.description.toLowerCase()
-
-        // Filters name OR ingredients OR description
-        return name.includes(value) || ingredients.some(ingredient => ingredient.includes(value)) || description.includes(value)
-    })
 }
 
 // Func 2
