@@ -9,22 +9,22 @@ import { pushDropdownData } from "./components/dropdownData.js"
 
 /*********** Initiation ***********/
 
-// To build the recipes count
-const updateRecipesCount = (count) => {
-    const recipeCountElement = document.querySelector(".recipes-count")
-    recipeCountElement.textContent = `${count} recettes`
-}
-
 window.onload = async () => {
     const { recipes } = await getRecipes()
-
+    
     // To declare the dropdowns lists
     const ingredients = []
     const appliances = []
     const utensils = []
-
+    
     // To define the dropdowns lists and to push the data
     pushDropdownData(recipes, ingredients, appliances, utensils)
+    
+    // To build the recipes count
+    const updateRecipesCount = (count) => {
+        const recipeCountElement = document.querySelector(".recipes-count")
+        recipeCountElement.textContent = `${count} recettes`
+    }
 
     const filterAndDisplayRecipes = () => {
         const filterMapFrEn = new Map([
@@ -40,6 +40,9 @@ window.onload = async () => {
         const tagsList = [...document.querySelectorAll(".selected_tag")].map(element => {
             const tagName = filterMapFrEn.get(element.getAttribute("data-filter").toLowerCase())
             const tagValue = element.querySelector(".selected_tag_name").textContent.toLowerCase()
+            
+            console.log(tagName, "Dans app.js")
+
             return { name: tagName, value: tagValue }
         })
 
@@ -47,27 +50,27 @@ window.onload = async () => {
         const filtered = searchRecipes(recipes, filterInput, tagsList)
         const pagination = document.querySelector(".recipes-pagination")
         
-        const handleClickTag = (value) => {
-            inputSearchBarHeader.value = value
-            inputSearchBarHeader.dispatchEvent(new Event("input"))
-            filterAndDisplayRecipes()
-        }
-
         // To display the filtered recipes
         if (filtered.length > 0) {
             displayCards(filtered)
             pagination.style.display = "flex"
         } else {
+            const handleClickTag = (value) => {
+                inputSearchBarHeader.value = value
+                inputSearchBarHeader.dispatchEvent(new Event("input"))
+            }
             // To display the no result message
-            suggestRecipes(handleClickTag, tagsList, filterInput, pagination, filterAndDisplayRecipes)
+            suggestRecipes(handleClickTag, tagsList, filterInput, pagination)
         }
 
         // To update the count with the filtered recipes
         updateRecipesCount(filtered.length)
 
-        // To update the dropdowns with the filtered recipes => doesn't work for now
-        updateDropdowns(filtered, debounceSearchRecipes)
+        // To update the dropdowns with the filtered recipes -> Le problème semble être ici
+        // Sans l'update, le système de filtre et de tag fonctionne
+        updateDropdowns(filtered)
     }
+    
 
     // To debounce the filter system
     const debounceSearchRecipes = debounce(filterAndDisplayRecipes, -1)
@@ -100,17 +103,15 @@ window.onload = async () => {
             tagList: utensils 
         }
     ]
-
     initialiseDropdowns(dropdowns, filtersContainer, debounceSearchRecipes)
+    
 
     // To update the recipes count and to display the recipes cards (items per page: 9)
     updateRecipesCount(recipes.length)
     displayCards(recipes, 1, 9)
-        
-    
 
     /*********** Testing native loops and Functional Programming performances ***********/
-
+/*
     const measurePerformance = (filterFunction, list, value) => {
         console.time("Performance Test")
         const result = filterFunction(list, value)
@@ -128,4 +129,6 @@ window.onload = async () => {
     // Functional programming performance
     console.log('Testing Functional Programming:')
     measurePerformance(filterInputsearchFunctional, recipes, filterValue)
+
+*/    
 }
