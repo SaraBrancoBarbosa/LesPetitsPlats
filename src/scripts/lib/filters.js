@@ -21,9 +21,8 @@ Func 3 =
 */
 
 // Func 3
-// !!!!!!!!!!!!!!!!! Change to filterInputsearchFunctional when splitting branch !!!!!!!!!!!!!!!!!
 export function searchRecipes(list, value, tagsList) {
-    const inNameOrIngredientsOrDescription = filterInputsearchNative(list, value)
+    const inNameOrIngredientsOrDescription = filterInputsearchFunctional(list, value)
     const inTags = filterTags(inNameOrIngredientsOrDescription, tagsList)
 
     return inTags
@@ -91,4 +90,3 @@ const filterTags = (list, tagsList) => {
         }
     )
 }
-
